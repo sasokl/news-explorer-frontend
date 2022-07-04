@@ -1,10 +1,14 @@
 import SavedNewsHeader from "../SavedNewsHeader/SavedNewsHeader";
+import NewsCardList from "../NewsCardList/NewsCardList";
 
-function SavedNews() {
+function SavedNews({isLoggedIn}) {
   return (
-    <div className='saved-news'>
+    <main className='saved-news'>
       <SavedNewsHeader/>
-    </div>
+      <NewsCardList
+      isLoggedIn={isLoggedIn}
+      location='/saved-news'/>
+    </main>
   );
 }
 

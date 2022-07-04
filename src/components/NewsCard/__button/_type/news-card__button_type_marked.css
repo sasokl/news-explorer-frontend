@@ -1,0 +1,7 @@
+.news-card__button_type_marked {
+  background-image: url(../../../../images/bookmark-marked.svg);
+}
+
+.news-card__button_type_marked:hover {
+  background-image: url(../../../../images/bookmark-marked.svg);
+}

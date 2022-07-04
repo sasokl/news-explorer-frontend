@@ -1,7 +1,4 @@
 .app {
-  font-family: 'Roboto', 'Inter', Arial, sans-serif;
-  background-color: var(--main-bg);
-  color: var(--main-content-color);
   width: 100%;
   height: 100%;
   box-sizing: border-box;

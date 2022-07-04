@@ -5,8 +5,6 @@ function Navigation({isThemeDark, loggedIn}) {
   const history = useHistory();
   const location = history.location.pathname;
 
-  console.log(location);
-
   return (
     <nav className='navigation'>
       <CustomLink

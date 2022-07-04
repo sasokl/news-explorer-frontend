@@ -1,0 +1,10 @@
+.news-card__button {
+  cursor: pointer;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 40px;
+  height: 40px;
+  background-color: var(--secondary-bg);
+  border: none;
+  border-radius: 8px;
+}

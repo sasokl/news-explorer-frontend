@@ -1,0 +1,7 @@
+.news-card__button_type_save {
+  background-image: url(../../../../images/bookmark-default.svg);
+}
+
+.news-card__button_type_save:hover {
+  background-image: url(../../../../images/bookmark-hovered.svg);
+}

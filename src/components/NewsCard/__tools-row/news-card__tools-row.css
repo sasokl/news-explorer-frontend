@@ -1,0 +1,11 @@
+.news-card__tools-row {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  column-gap: 5px;
+  box-sizing: border-box;
+  padding: 24px 24px 0;
+}

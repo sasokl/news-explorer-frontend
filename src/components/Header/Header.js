@@ -1,11 +1,9 @@
 import CustomLink from "../CustomLink/CustomLink";
 import Navigation from "../Navigation/Navigation";
 import {useHistory} from "react-router-dom";
-import {useState} from "react";
 
-function Header() {
-  //TODO fix the temp solution for logged in variable
-  const [loggedIn, setLoggedIn] = useState(true);
+function Header({isLoggedIn, setIsLoggedIn}) {
+
 
   const history = useHistory();
   const location = history.location.pathname;
@@ -13,9 +11,14 @@ function Header() {
 
   const logoutIcon = `header__logout-ico ${isThemeDark ? 'header__logout-ico_color_white' : 'header__logout-ico_color_black'}`;
 
-  const loginBtn = loggedIn ?
-    <button onClick={() => setLoggedIn(false)} className={`header__login-btn header__login-btn_type_logout${isThemeDark ? ' header__login-btn_theme-dark' : ''}`} type='submit'>Elise<div className={logoutIcon}/></button> :
-    <button onClick={() => setLoggedIn(true)} className={`header__login-btn header__login-btn_type_login${isThemeDark ? ' header__login-btn_theme-dark' : ''}`} type='submit'>Sign in</button>;
+  const handleLogout = () => {
+    setIsLoggedIn(false)
+    history.push('/');
+  }
+
+  const loginBtn = isLoggedIn ?
+    <button onClick={handleLogout} className={`header__login-btn header__login-btn_type_logout${isThemeDark ? ' header__login-btn_theme-dark' : ''}`} type='submit'>Elise<div className={logoutIcon}/></button> :
+    <button onClick={() => setIsLoggedIn(true)} className={`header__login-btn header__login-btn_type_login${isThemeDark ? ' header__login-btn_theme-dark' : ''}`} type='submit'>Sign in</button>;
 
   return (
     <header className={`header${isThemeDark ? ' header_theme-dark' : ''}`}>
@@ -24,7 +27,7 @@ function Header() {
       </CustomLink>
       <Navigation
         isThemeDark={isThemeDark}
-      loggedIn={loggedIn}/>
+      loggedIn={isLoggedIn}/>
       {loginBtn}
     </header>
   );

@@ -1,0 +1,15 @@
+.news-card__title {
+  font-family: 'Roboto-Slab', Ariel, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 26px;
+  line-height: 30px;
+  height: 60px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  color: var(--main-content-color);
+  margin: 12px 0 0;
+}

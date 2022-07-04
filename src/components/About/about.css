@@ -1,0 +1,6 @@
+.about {
+  display: flex;
+  column-gap: 56px;
+  padding: 80px var(--main-page-horizontal-padding);
+  background-color: var(--secondary-bg);
+}

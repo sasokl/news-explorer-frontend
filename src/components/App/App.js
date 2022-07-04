@@ -1,7 +1,7 @@
 import Header from '../Header/Header';
-import SearchForm from '../SearchForm/SearchForm';
 import {Route, Switch, withRouter} from "react-router-dom";
-import SavedNewsHeader from "../SavedNewsHeader/SavedNewsHeader";
+import SavedNews from "../SavedNews/SavedNews";
+import Main from "../Main/Main";
 
 function App(props) {
   return (
@@ -10,10 +10,10 @@ function App(props) {
         <Header/>
         <Switch>
           <Route path="/saved-news">
-            <SavedNewsHeader/>
+            <SavedNews/>
           </Route>
           <Route path="/">
-            <SearchForm/>
+            <Main/>
           </Route>
         </Switch>
       </div>

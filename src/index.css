@@ -6,11 +6,11 @@
 
 @import url(components/App/app.css);
 
-/* ================== Custom Classes ==================*/
+/* ================== Custom Classes ================== */
 
 @import url(components/CustomLink/custom-link.css);
 
-/* ================== Header ==================*/
+/* ================== Header ================== */
 
 @import url(components/Header/header.css);
 @import url(components/Header/_theme-dark/header_theme-dark.css);
@@ -35,11 +35,11 @@
 @import url(./components/Navigation/__item/_active/navigation__item_active.css);
 @import url(./components/Navigation/__item/_active/_theme-dark/navigation__item_active_theme-dark.css);
 
-/* ================== Main ==================*/
+/* ================== Main ================== */
 
 @import url(./components/Main/main.css);
 
-/* ================== Search section ==================*/
+/* ---------------- Search section ---------------- */
 
 @import url(components/SearchForm/search-form.css);
 @import url(components/SearchForm/__title/search-form__title.css);
@@ -49,11 +49,19 @@
 @import url(components/SearchForm/__button/search-form__button.css);
 @import url(components/SearchForm/__button/_mousedown/search-form__button_mousedown.css);
 
-/* ================== Saved News ==================*/
+/* ---------------- About section ---------------- */
+
+@import url(components/About/about.css);
+@import url(components/About/__avatar/about__avatar.css);
+@import url(components/About/__info-container/about__info-container.css);
+@import url(components/About/__info-title/about__info-title.css);
+@import url(components/About/__info-text/about__info-text.css);
+
+/* ================== Saved News ================== */
 
 @import url(./components/SavedNews/saved-news.css);
 
-/* ================== Saved News Header section ==================*/
+/* ---------------- Saved News Header section ---------------- */
 
 @import url(components/SavedNewsHeader/saved-news-header.css);
 @import url(components/SavedNewsHeader/__description/saved-news-header__description.css);
@@ -62,10 +70,6 @@
 @import url(components/SavedNewsHeader/__keywords-line/saved-news-header__keywords-line.css);
 @import url(components/SavedNewsHeader/__keywords/saved-news-header__keywords.css);
 
-/* ================== About section ==================*/
+/* ================== Footer ==================*/
 
-@import url(components/About/about.css);
-@import url(components/About/__avatar/about__avatar.css);
-@import url(components/About/__info-container/about__info-container.css);
-@import url(components/About/__info-title/about__info-title.css);
-@import url(components/About/__info-text/about__info-text.css);
+@import url(components/Footer/footer.css);

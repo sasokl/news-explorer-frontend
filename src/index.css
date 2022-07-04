@@ -10,6 +10,14 @@
 
 @import url(components/CustomLink/custom-link.css);
 
+@import url(./components/Navigation/navigation.css);
+@import url(./components/Navigation/__item/navigation__item.css);
+@import url(./components/Navigation/__item/_type/navigation__item_type_home.css);
+@import url(./components/Navigation/__item/_type/navigation__item_type_saved-news.css);
+@import url(./components/Navigation/__item/_theme-dark/navigation__item_theme-dark.css);
+@import url(./components/Navigation/__item/_active/navigation__item_active.css);
+@import url(./components/Navigation/__item/_active/_theme-dark/navigation__item_active_theme-dark.css);
+
 /* ================== Header ================== */
 
 @import url(components/Header/header.css);
@@ -26,14 +34,6 @@
 @import url(./components/Header/__logout-ico/header__logout-ico.css);
 @import url(./components/Header/__logout-ico/_color/header__logout-ico_color_black.css);
 @import url(./components/Header/__logout-ico/_color/header__logout-ico_color_white.css);
-
-@import url(./components/Navigation/navigation.css);
-@import url(./components/Navigation/__item/navigation__item.css);
-@import url(./components/Navigation/__item/_type/navigation__item_type_home.css);
-@import url(./components/Navigation/__item/_type/navigation__item_type_saved-news.css);
-@import url(./components/Navigation/__item/_theme-dark/navigation__item_theme-dark.css);
-@import url(./components/Navigation/__item/_active/navigation__item_active.css);
-@import url(./components/Navigation/__item/_active/_theme-dark/navigation__item_active_theme-dark.css);
 
 /* ================== Main ================== */
 
@@ -73,3 +73,10 @@
 /* ================== Footer ==================*/
 
 @import url(components/Footer/footer.css);
+@import url(components/Footer/__copyright/footer__copyright.css);
+@import url(components/Footer/__navigation/footer__navigation.css);
+@import url(components/Footer/__navigation-item/footer__navigation-item.css);
+@import url(components/Footer/__social/footer__social.css);
+@import url(components/Footer/__social-item/footer__social-item.css);
+@import url(components/Footer/__social-item/_type/footer__social-item_type_git.css);
+@import url(components/Footer/__social-item/_type/footer__social-item_type_facebook.css);

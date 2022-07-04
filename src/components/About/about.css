@@ -1,6 +1,8 @@
 .about {
+  width: 100%;
   display: flex;
   column-gap: 56px;
+  box-sizing: border-box;
   padding: 80px var(--main-page-horizontal-padding);
   background-color: var(--secondary-bg);
 }

@@ -11,9 +11,9 @@
   border-radius: 100px;
   height: 48px;
   display: flex;
-  column-gap: 15px;
   justify-content: space-between;
   align-items: center;
+  column-gap: 15px;
   transition: var(--link-transition);
 }
 

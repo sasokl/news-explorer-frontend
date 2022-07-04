@@ -27,11 +27,17 @@
 
 @import url(./components/Navigation/navigation.css);
 @import url(./components/Navigation/__item/navigation__item.css);
-@import url(./components/Navigation/__item/_active/navigation__item_active.css);
-@import url(./components/Navigation/__item/_active/_theme-dark/navigation__item_active_theme-dark.css);
 @import url(./components/Navigation/__item/_type/navigation__item_type_home.css);
 @import url(./components/Navigation/__item/_type/navigation__item_type_saved-news.css);
 @import url(./components/Navigation/__item/_theme-dark/navigation__item_theme-dark.css);
+@import url(./components/Navigation/__item/_active/navigation__item_active.css);
+@import url(./components/Navigation/__item/_active/_theme-dark/navigation__item_active_theme-dark.css);
 
 /* ================== Search section ==================*/
-@import url(./components/SearchForm/SearchForm.css);
+@import url(components/SearchForm/search-form.css);
+@import url(components/SearchForm/__title/search-form__title.css);
+@import url(components/SearchForm/__subtitle/search-form__subtitle.css);
+@import url(components/SearchForm/__form-elem/search-form__form-elem.css);
+@import url(components/SearchForm/__input/search-form__input.css);
+@import url(components/SearchForm/__button/search-form__button.css);
+@import url(components/SearchForm/__button/_mousedown/search-form__button_mousedown.css);

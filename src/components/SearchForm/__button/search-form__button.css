@@ -1,0 +1,31 @@
+.search-form__button {
+  font-family: 'Roboto', Arial, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  cursor: pointer;
+  background-color: var(--form-button-bg);
+  box-shadow: 0 5px 15px rgba(14, 26, 57, 0.2);
+  border: none;
+  border-radius: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 56px;
+  transition: background-color .3s linear;;
+  color: var(--dark-bg-content-color);
+}
+
+.search-form__button:hover {
+  background-color: var(--form-button-bg-hovered);
+}
+
+.search-form__button:target {
+  background-color: var(--form-button-bg-clicked);
+}
+

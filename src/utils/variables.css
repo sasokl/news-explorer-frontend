@@ -8,6 +8,10 @@
   --secondary-content-color: #B6BCBF;
   --dark-bg-content-color: #FFFFFF;
 
+  --form-button-bg: #2F71E5;
+  --form-button-bg-hovered: #347EFF;
+  --form-button-bg-clicked: #2A65CC;
+
   --link-transition: opacity .3s linear;
   --hovered-link-opacity: .8;
 

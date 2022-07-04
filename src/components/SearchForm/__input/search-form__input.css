@@ -1,0 +1,20 @@
+.search-form__input {
+  font-family: 'Roboto', Arial, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  border: 1px solid #D1D2D6;
+  backdrop-filter: blur(8px);
+  border-radius: 100px;
+  height: 100%;
+  width: 100%;
+  size: 10px;
+  padding: 0 208px 0 24px;
+  box-sizing: border-box;
+  color: var(--main-content-color);
+}
+
+.search-form__input:focus {
+  outline: none;
+}

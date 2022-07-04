@@ -4,4 +4,10 @@
   background-size: cover;
   width: 100%;
   min-height: 576px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 0 0;
+  box-sizing: border-box;
 }

@@ -1,0 +1,5 @@
+.navigation__item_active {
+  pointer-events: none;
+  color: var(--main-content-color);
+  border-bottom: 3px solid var(--main-content-color);
+}

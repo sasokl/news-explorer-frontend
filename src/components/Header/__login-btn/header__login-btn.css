@@ -1,0 +1,22 @@
+.header__login-btn {
+  font-family: 'Roboto', Ariel, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  background-color: transparent;
+  cursor: pointer;
+  color: var(--main-content-color);
+  border: 1px solid #D1D2D6;
+  border-radius: 100px;
+  height: 48px;
+  display: flex;
+  column-gap: 15px;
+  justify-content: space-between;
+  align-items: center;
+  transition: var(--link-transition);
+}
+
+.header__login-btn:hover {
+  opacity: var(--hovered-link-opacity);
+}

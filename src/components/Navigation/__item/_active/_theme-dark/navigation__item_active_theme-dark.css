@@ -1,0 +1,4 @@
+.navigation__item_active_theme-dark {
+  color: var(--dark-bg-content-color);
+  border-bottom: 3px solid var(--dark-bg-content-color);
+}

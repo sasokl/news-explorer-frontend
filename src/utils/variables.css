@@ -1,0 +1,16 @@
+.variables {
+  --main-bg: #F5F6F7;
+  --secondary-bg: #F5F6F7;
+
+  --error-content-color: #FF0000;
+
+  --main-content-color: #1A1B22;
+  --secondary-content-color: #B6BCBF;
+  --dark-bg-content-color: #FFFFFF;
+
+  --link-transition: opacity .3s linear;
+  --hovered-link-opacity: .8;
+
+
+  --hovered-popup-submit-button-opacity: .8;
+}

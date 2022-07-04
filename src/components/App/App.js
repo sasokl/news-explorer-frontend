@@ -1,6 +1,7 @@
 import Header from '../Header/Header';
 import SearchForm from '../SearchForm/SearchForm';
 import {Route, Switch, withRouter} from "react-router-dom";
+import SavedNewsHeader from "../SavedNewsHeader/SavedNewsHeader";
 
 function App(props) {
   return (
@@ -9,8 +10,7 @@ function App(props) {
         <Header/>
         <Switch>
           <Route path="/saved-news">
-            <SearchForm/>
-            <SearchForm/>
+            <SavedNewsHeader/>
           </Route>
           <Route path="/">
             <SearchForm/>

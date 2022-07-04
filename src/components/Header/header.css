@@ -11,5 +11,5 @@
   justify-content: flex-end;
   align-items: center;
   column-gap: 32px;
-  padding: 0 104px;
+  padding: 0 var(--main-page-horizontal-padding);
 }

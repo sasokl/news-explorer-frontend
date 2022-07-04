@@ -7,9 +7,11 @@
 @import url(components/App/app.css);
 
 /* ================== Custom Classes ==================*/
+
 @import url(components/CustomLink/custom-link.css);
 
 /* ================== Header ==================*/
+
 @import url(components/Header/header.css);
 @import url(components/Header/_theme-dark/header_theme-dark.css);
 
@@ -34,6 +36,7 @@
 @import url(./components/Navigation/__item/_active/_theme-dark/navigation__item_active_theme-dark.css);
 
 /* ================== Search section ==================*/
+
 @import url(components/SearchForm/search-form.css);
 @import url(components/SearchForm/__title/search-form__title.css);
 @import url(components/SearchForm/__subtitle/search-form__subtitle.css);
@@ -41,3 +44,12 @@
 @import url(components/SearchForm/__input/search-form__input.css);
 @import url(components/SearchForm/__button/search-form__button.css);
 @import url(components/SearchForm/__button/_mousedown/search-form__button_mousedown.css);
+
+/* ================== Saved News section ==================*/
+
+@import url(components/SavedNewsHeader/saved-news-header.css);
+@import url(components/SavedNewsHeader/__description/saved-news-header__description.css);
+@import url(components/SavedNewsHeader/__title/saved-news-header__title.css);
+@import url(components/SavedNewsHeader/__keywords-container/saved-news-header__keywords-container.css);
+@import url(components/SavedNewsHeader/__keywords-line/saved-news-header__keywords-line.css);
+@import url(components/SavedNewsHeader/__keywords/saved-news-header__keywords.css);

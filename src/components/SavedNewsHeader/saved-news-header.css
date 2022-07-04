@@ -1,0 +1,11 @@
+.saved-news-header {
+  background-color: var(--secondary-bg);
+  min-height: 374px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  box-sizing: border-box;
+  padding: 80px var(--main-page-horizontal-padding) 0;
+}

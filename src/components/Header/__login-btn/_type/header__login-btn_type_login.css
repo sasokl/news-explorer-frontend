@@ -2,3 +2,9 @@
   width: 176px;
   justify-content: center;
 }
+
+@media screen and (max-width: 768px) {
+  .header__login-btn_type_login {
+    width: 152px;
+  }
+}

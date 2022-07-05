@@ -4,5 +4,12 @@
   flex-direction: column;
   box-sizing: border-box;
   row-gap: 64px;
-  padding: 80px var(--main-page-horizontal-padding);
+  padding: 80px var(--1440-page-horizontal-padding);
+}
+
+@media screen and (max-width: 768px) {
+  .news-card-list {
+    row-gap: 32px;
+    padding: 40px var(--768-page-horizontal-padding);
+  }
 }

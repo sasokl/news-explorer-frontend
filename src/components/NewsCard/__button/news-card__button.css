@@ -7,6 +7,7 @@
   background-color: var(--secondary-bg);
   border: none;
   border-radius: 8px;
+  padding: 0;
 }
 
 .news-card__button:focus-visible {

@@ -7,5 +7,12 @@
   justify-content: flex-start;
   align-items: flex-start;
   box-sizing: border-box;
-  padding: 80px var(--main-page-horizontal-padding) 0;
+  padding: 120px var(--1440-page-horizontal-padding) 56;
+}
+
+@media screen and (max-width: 768px) {
+  .saved-news-header {
+    min-height: 270px;
+    padding: 90px var(--768-page-horizontal-padding) 32px;
+  }
 }

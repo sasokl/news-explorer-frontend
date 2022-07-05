@@ -1,4 +1,12 @@
 .navigation {
   display: flex;
+  align-items: center;
   column-gap: 34px;
+  height: 100%;
+}
+
+@media screen and (max-width: 768px) {
+  .navigation {
+    column-gap: 16px;
+  }
 }

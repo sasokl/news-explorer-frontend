@@ -5,3 +5,11 @@
   height: 64px;
   margin: 88px 0 0;
 }
+
+@media screen and (max-width: 768px) {
+  .search-form__form-elem {
+    max-width: 452px;
+    height: 56px;
+    margin-top: 48px
+  }
+}

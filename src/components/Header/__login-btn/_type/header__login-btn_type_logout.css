@@ -1,3 +1,9 @@
 .header__login-btn_type_logout {
   padding: 0 15px 0 19px;
 }
+
+@media screen and (max-width: 768px) {
+  .header__login-btn_type_logout {
+    padding: 0 13px 0 15px;
+  }
+}

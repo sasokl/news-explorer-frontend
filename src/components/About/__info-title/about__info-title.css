@@ -8,3 +8,11 @@
   color: var(--main-content-color);
   margin: 51px 0 0;
 }
+
+@media screen and (max-width: 768px) {
+  .about__info-title {
+    font-size: 30px;
+    line-height: 40px;
+    margin: 0;
+  }
+}

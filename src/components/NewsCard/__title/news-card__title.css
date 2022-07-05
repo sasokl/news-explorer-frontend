@@ -13,3 +13,13 @@
   color: var(--main-content-color);
   margin: 12px 0 0;
 }
+
+@media screen and (max-width: 768px) {
+  .news-card__title {
+    font-size: 22px;
+    line-height: 24px;
+    height: 72px;
+    -webkit-line-clamp: 3;
+    margin: 8px 0 0;
+  }
+}

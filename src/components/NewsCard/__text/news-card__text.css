@@ -4,7 +4,6 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 22px;
-  max-width: 352px;
   height: 110px;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -13,4 +12,12 @@
   -webkit-box-orient: vertical;
   color: var(--main-content-color);
   margin: 16px 0 0;
+}
+
+@media screen and (max-width: 768px) {
+  .news-card__text {
+    height: 88px;
+    -webkit-line-clamp: 4;
+    margin: 10px 0 0;
+  }
 }

@@ -5,5 +5,12 @@
   font-size: 18px;
   line-height: 24px;
   color: rgba(26, 27, 34, 0.5);
-  margin: 40px 0 0;
+  margin: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .saved-news-header__description {
+    font-size: 14px;
+    line-height: 24px;
+  }
 }

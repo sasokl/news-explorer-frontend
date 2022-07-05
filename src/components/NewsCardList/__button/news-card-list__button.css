@@ -12,9 +12,17 @@
   border-radius: 80px;
   align-self: center;
   transition: all .3s linear;
+  padding: 0;
 }
 
 .news-card-list__button:hover {
   background: #E8E8E8;
   opacity: 0.9;
+}
+
+@media screen and (max-width: 768px) {
+  .news-card-list__button {
+    width: 240px;
+    height: 56px;
+  }
 }

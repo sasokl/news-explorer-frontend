@@ -7,3 +7,10 @@
   color: var(--main-content-color);
   margin: 0;
 }
+
+@media screen and (max-width: 768px) {
+  .news-card-list__title {
+    font-size: 30px;
+    line-height: 34px;
+  }
+}

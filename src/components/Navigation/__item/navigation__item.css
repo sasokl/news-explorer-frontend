@@ -4,7 +4,7 @@
   font-weight: 500;
   font-size: 18px;
   line-height: 24px;
-  height: 80px;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -13,4 +13,10 @@
 
 
   color: var(--main-content-color);
+}
+
+@media screen and (max-width: 768px) {
+  .navigation__item {
+    font-size: 16px;
+  }
 }

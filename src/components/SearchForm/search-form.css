@@ -8,6 +8,13 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 80px 0 0;
+  padding: 160px var(--1440-page-horizontal-padding) 80px;
   box-sizing: border-box;
+}
+
+@media screen and (max-width: 768px) {
+  .search-form {
+    min-height: 400px;
+    padding: 104px var(--768-page-horizontal-padding) 48px;
+  }
 }

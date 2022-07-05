@@ -9,14 +9,22 @@
   color: var(--main-content-color);
   border: 1px solid #D1D2D6;
   border-radius: 100px;
-  height: 48px;
+  height: 60%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   column-gap: 15px;
+  padding: 0;
   transition: var(--link-transition);
 }
 
 .header__login-btn:hover {
   opacity: var(--hovered-link-opacity);
+}
+
+@media screen and (max-width: 768px) {
+  .header__login-btn {
+    font-size: 16px;
+    column-gap: 13px;
+  }
 }

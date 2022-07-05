@@ -75,6 +75,7 @@
 /* ---------------- Search section ---------------- */
 
 @import url(./components/SearchForm/search-form.css);
+@import url(./components/SearchForm/__container/search-form__container.css);
 @import url(./components/SearchForm/__title/search-form__title.css);
 @import url(./components/SearchForm/__subtitle/search-form__subtitle.css);
 @import url(./components/SearchForm/__form-elem/search-form__form-elem.css);

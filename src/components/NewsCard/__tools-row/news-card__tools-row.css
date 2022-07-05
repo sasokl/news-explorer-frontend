@@ -9,3 +9,10 @@
   box-sizing: border-box;
   padding: 24px 24px 0;
 }
+
+@media screen and (max-width: 768px) {
+  .news-card__tools-row {
+    padding: 8px 8px 0;
+    column-gap: 3px;
+  }
+}

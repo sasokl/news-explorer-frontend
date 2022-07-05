@@ -4,7 +4,14 @@
   font-weight: 400;
   font-size: 18px;
   line-height: 24px;
-  max-width: 608px;
+  width: 100%;
   margin: 32px 0 0;
   color: var(--dark-bg-content-color);
+}
+
+@media screen and (max-width: 768px) {
+  .search-form__subtitle {
+    max-width: 452px;
+    margin-top: 16px;
+  }
 }

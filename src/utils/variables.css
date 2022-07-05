@@ -13,7 +13,8 @@
   --form-button-bg-hovered: #347EFF;
   --form-button-bg-clicked: #2A65CC;
 
-  --main-page-horizontal-padding: 104px;
+  --1440-page-horizontal-padding: 104px;
+  --768-page-horizontal-padding: 40px;
 
   --link-transition: opacity .3s linear;
   --form-button-transition: background-color .3s linear;

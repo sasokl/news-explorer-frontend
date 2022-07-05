@@ -10,5 +10,13 @@
   justify-content: flex-end;
   align-items: center;
   column-gap: 32px;
-  padding: 0 var(--main-page-horizontal-padding);
+  padding: 0 var(--1440-page-horizontal-padding);
+}
+
+@media screen and (max-width: 768px) {
+  .header {
+    height: 66px;
+    column-gap: 16px;
+    padding: 0 var(--768-page-horizontal-padding);
+  }
 }

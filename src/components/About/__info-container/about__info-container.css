@@ -1,2 +1,4 @@
 .about__info-container {
+  display: flex;
+  flex-direction: column;
 }

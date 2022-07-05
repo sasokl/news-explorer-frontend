@@ -1,6 +1,6 @@
 import NewsCard from "../NewsCard/NewsCard";
 
-function NewsCardList({isLoggedIn, location}) {
+function NewsCardList({isLoggedIn, location, onSignInClick}) {
   // These card's data below are temporary till I'll finish stage 3.
   return (
     <section className='news-card-list'>
@@ -9,6 +9,7 @@ function NewsCardList({isLoggedIn, location}) {
         <NewsCard
           isLoggedIn={isLoggedIn}
           location={location}
+          onSignInClick={onSignInClick}
           imgLink={require('../../images/temp/1card.jpg')}
           date='November 4, 2020'
           title={'Everyone Needs a Special \'Sit Spot\' in Nature'}
@@ -21,6 +22,7 @@ function NewsCardList({isLoggedIn, location}) {
         <NewsCard
           isLoggedIn={isLoggedIn}
           location={location}
+          onSignInClick={onSignInClick}
           imgLink={require('../../images/temp/2card.jpg')}
           date='February 19, 2019'
           title={'Nature makes you better'}
@@ -32,6 +34,7 @@ function NewsCardList({isLoggedIn, location}) {
         <NewsCard
           isLoggedIn={isLoggedIn}
           location={location}
+          onSignInClick={onSignInClick}
           imgLink={require('../../images/temp/3card.jpg')}
           date='October 19, 2020'
           title={'Grand Teton Renews Historic Crest Trail'}

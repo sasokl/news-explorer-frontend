@@ -1,6 +1,6 @@
 import {useState} from "react";
 
-function NewsCard({isLoggedIn, location, imgLink, date, title, text, tag, keyword}) {
+function NewsCard({isLoggedIn, location, imgLink, date, title, text, tag, keyword, onSignInClick}) {
 
   const [isSaved, setIsSaved] = useState(false);
   const [btnMessage, setBtnMessage] = useState(null);
@@ -18,15 +18,21 @@ function NewsCard({isLoggedIn, location, imgLink, date, title, text, tag, keywor
     setBtnMessage(null);
   }
 
-  const handleDeleteCard = () => {
+  const handleDeleteArticle = () => {
     console.log('Deleted');
+  }
+
+  const handleSaveArticle = () => {
+    isLoggedIn ?
+      setIsSaved(!isSaved) :
+      onSignInClick();
   }
 
   const keywordTool = <p className='news-card__keyword'>{keyword}</p>;
   const mainButton = location === '/saved-news' ?
-    <button onMouseEnter={handleButtonEnter} onMouseLeave={handleButtonLeave} onClick={handleDeleteCard}
+    <button onMouseEnter={handleButtonEnter} onMouseLeave={handleButtonLeave} onClick={handleDeleteArticle}
             className={`news-card__button news-card__button_type_trash`}></button> :
-    <button onMouseEnter={handleButtonEnter} onMouseLeave={handleButtonLeave} onClick={() => isLoggedIn && setIsSaved(!isSaved)}
+    <button onMouseEnter={handleButtonEnter} onMouseLeave={handleButtonLeave} onClick={handleSaveArticle}
             className={`news-card__button${isSaved ? ' news-card__button_type_marked' : ' news-card__button_type_save'}`}></button>
 
   return (

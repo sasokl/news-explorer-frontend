@@ -1,6 +1,6 @@
 import {useState} from "react";
 
-function SearchForm() {
+function SearchForm({onSubmit}) {
   const [searchText, setSearchText] = useState('');
 
   const handleSearchTextChange = (e) => {
@@ -13,6 +13,11 @@ function SearchForm() {
 
   const handleButtonMouseup = (e) => {
     e.target.className = 'search-form__button'
+  }
+
+  const handleSubmit= (e) => {
+    e.preventDefault();
+    onSubmit();
   }
 
   return (
@@ -32,9 +37,11 @@ function SearchForm() {
           placeholder='Enter topic'
         />
         <button
+          onClick={handleSubmit}
           className="search-form__button"
           onMouseDown={handleButtonMousedown}
           onMouseUp={handleButtonMouseup}
+          onMouseLeave={handleButtonMouseup}
           type="submit"
         >
           Search

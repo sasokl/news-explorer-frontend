@@ -16,6 +16,7 @@
   --main-page-horizontal-padding: 104px;
 
   --link-transition: opacity .3s linear;
+  --form-button-transition: background-color .3s linear;
   --hovered-link-opacity: .8;
 
 

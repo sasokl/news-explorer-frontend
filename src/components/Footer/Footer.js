@@ -10,9 +10,9 @@ function Footer() {
           </CustomLink>
       </nav>
       <nav className="navigation footer__social">
-          <CustomLink to="https://github.com/sasokl" className="footer__social-item footer__social-item_type_git">
+          <a href="https://github.com/sasokl" className="custom-link footer__social-item footer__social-item_type_git">
             <div className="footer__social-type-git"/>
-          </CustomLink>
+          </a>
           <CustomLink to="/" className="footer__social-item footer__social-item_type_facebook">
             <div className="footer__social-type-li"/>
           </CustomLink>

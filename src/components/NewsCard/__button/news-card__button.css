@@ -8,3 +8,7 @@
   border: none;
   border-radius: 8px;
 }
+
+.news-card__button:focus-visible {
+  outline: none;
+}

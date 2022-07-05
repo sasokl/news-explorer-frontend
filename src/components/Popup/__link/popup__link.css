@@ -1,0 +1,10 @@
+.popup__link {
+  cursor: pointer;
+  font-family: 'Inter', Ariel, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  margin: 0;
+  color: var(--form-button-bg);
+}

@@ -7,7 +7,7 @@
   justify-content: flex-start;
   align-items: flex-start;
   box-sizing: border-box;
-  padding: 120px var(--1440-page-horizontal-padding) 56;
+  padding: 120px var(--1440-page-horizontal-padding) 56px;
 }
 
 @media screen and (max-width: 768px) {

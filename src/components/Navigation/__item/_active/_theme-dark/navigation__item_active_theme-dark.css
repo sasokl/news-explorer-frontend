@@ -2,3 +2,9 @@
   color: var(--dark-bg-content-color);
   border-bottom: 3px solid var(--dark-bg-content-color);
 }
+
+@media screen and (max-width: 580px) {
+  .navigation__item_active_theme-dark {
+    border: 0;
+  }
+}

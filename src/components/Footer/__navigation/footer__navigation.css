@@ -1,3 +1,5 @@
 .footer__navigation {
   display: flex;
+  height: 100%;
+  padding: 0;
 }

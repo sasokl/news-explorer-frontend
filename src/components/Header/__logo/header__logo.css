@@ -1,22 +1,12 @@
 .header__logo {
-  font-family: 'Roboto-Slab', Arial, sans-serif;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 20px;
-  line-height: 24px;
-  margin-right: auto;
-
-  color: var(--main-content-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
 }
 
 @media screen and (max-width: 580px) {
   .header__logo {
-    font-size: 18px;
-  }
-}
-
-@media screen and (max-width: 425px) {
-  .header__logo {
-    font-size: 16px;
+    height: 56px;
   }
 }

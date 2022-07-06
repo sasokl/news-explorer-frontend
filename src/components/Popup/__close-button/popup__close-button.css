@@ -13,22 +13,23 @@
   border: none;
   padding: 0;
   transition: var(--link-transition);
+  z-index: 1;
 }
 
-@media screen and (max-width: 530px) {
+@media screen and (max-width: 580px) {
   .popup__close-button {
-    width: 25px;
-    height: 25px;
-    top: -29px;
-    right: 0;
+    background-image: url(../../../images/close_icon_mobile.svg);
+    width: 24px;
+    height: 24px;
+    position: fixed;
+    top: 16px;
+    right: var(--580-page-horizontal-padding);
   }
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 425px) {
   .popup__close-button {
-    width: 20px;
-    height: 20px;
-    top: -24px;
+    right: var(--425-page-horizontal-padding);
   }
 }
 

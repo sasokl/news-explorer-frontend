@@ -5,12 +5,17 @@ function Popup({popupType, isOpen, onClose, children}) {
 
   const {width} = useWindowWidth();
   const isMobile = width <= 580;
+  const mobileContainerClass = isMobile ?
+    popupType === 'menu' ?
+      ' popup__container_type_top' :
+      ' popup__container_type_bottom' :
+    '';
 
   useEffect(() => {
-    if (isMobile && (popupType === 'menu' && width > 580)) {
+    if (isOpen && (popupType === 'menu' && width > 580)) {
       onClose();
     }
-  }, [width])
+  }, [width, isOpen, popupType, onClose])
 
   useEffect(() => {
     if (!isOpen) return;
@@ -34,7 +39,7 @@ function Popup({popupType, isOpen, onClose, children}) {
       className={`popup popup_type_${popupType}${isOpen ? ` popup_open` : ''}`}
       onClick={handleOverlay}
     >
-      <div className={`popup__container${isMobile ? ' popup__container_mobile' : ''}`}>
+      <div className={`popup__container${mobileContainerClass}`}>
         <button
           className="popup__close-button"
           onClick={onClose}

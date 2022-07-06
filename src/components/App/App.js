@@ -1,5 +1,5 @@
 import Header from '../Header/Header';
-import {Route, Switch, withRouter} from "react-router-dom";
+import {Route, Switch, useHistory, withRouter} from "react-router-dom";
 import SavedNews from "../SavedNews/SavedNews";
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
@@ -11,6 +11,8 @@ import MenuPopup from "../MenuPopup/MenuPopup";
 
 
 function App() {
+  const history = useHistory();
+
   //TODO fix the temp solution for logged in variable
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
@@ -53,8 +55,8 @@ function App() {
           isLoggedIn={isLoggedIn}
           onLoginClick={handleSignInClick}
           onMenuClick={handleMenuClick}
-          closePopup={closeAllPopups}
-          setIsLoggedIn={(isLoggedInFlag) => setIsLoggedIn(isLoggedInFlag)}/>
+          setIsLoggedIn={(isLoggedInFlag) => setIsLoggedIn(isLoggedInFlag)}
+          history={history}/>
         <Switch>
           <Route path="/saved-news">
             <SavedNews
@@ -84,7 +86,11 @@ function App() {
         onSignInClick={handleSignInClick}/>
       <MenuPopup
         isOpen={isMenuPopupOpen}
-        onClose={closeAllPopups}/>
+        onClose={closeAllPopups}
+        isLoggedIn={isLoggedIn}
+        onLoginClick={handleSignInClick}
+        setIsLoggedIn={(isLoggedInFlag) => setIsLoggedIn(isLoggedInFlag)}
+        history={history}/>
     </div>
   );
 }

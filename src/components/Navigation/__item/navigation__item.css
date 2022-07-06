@@ -10,13 +10,18 @@
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
-
-
   color: var(--main-content-color);
 }
 
 @media screen and (max-width: 768px) {
   .navigation__item {
     font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .navigation__item {
+    align-items: flex-start;
+    height: 56px;
   }
 }

@@ -1,4 +1,4 @@
-.header__login-btn_theme-dark {
+.login-button_theme-dark {
   color: var(--dark-bg-content-color);
   border-color: var(--dark-bg-content-color);
 }

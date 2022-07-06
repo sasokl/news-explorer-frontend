@@ -1,0 +1,21 @@
+.menu-popup__logo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+  background: rgba(196, 196, 196, 0.01);
+  box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.2);
+}
+
+@media screen and (max-width: 580px) {
+  .menu-popup__logo {
+    height: 56px;
+    padding: 0 var(--580-page-horizontal-padding);
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .menu-popup__logo {
+    padding: 0 var(--425-page-horizontal-padding);
+  }
+}

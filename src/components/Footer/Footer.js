@@ -5,12 +5,12 @@ function Footer() {
     <footer className='footer'>
       <p className="footer__copyright">&copy; 2022 Alexander Blaus</p>
       <div className="footer__content-container">
-        <nav className="navigation">
+        <nav className="navigation footer__navigation">
           <CustomLink to="/" className="navigation__item footer__navigation-item">
             Home
           </CustomLink>
         </nav>
-        <nav className="navigation footer__social">
+        <nav className="navigation footer__navigation footer__social">
           <a href="https://github.com/sasokl" className="custom-link footer__social-item footer__social-item_type_git">
             <div className="footer__social-type-git"/>
           </a>

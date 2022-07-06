@@ -7,3 +7,9 @@
     width: 60px;
   }
 }
+
+@media screen and (max-width: 580px) {
+  .navigation__item_type_home {
+    width: 100%;
+  }
+}

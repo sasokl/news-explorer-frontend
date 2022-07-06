@@ -1,4 +1,4 @@
-.header__login-btn {
+.login-button {
   font-family: 'Roboto', Ariel, sans-serif;
   font-style: normal;
   font-weight: 500;
@@ -18,13 +18,19 @@
   transition: var(--link-transition);
 }
 
-.header__login-btn:hover {
+.login-button:hover {
   opacity: var(--hovered-link-opacity);
 }
 
 @media screen and (max-width: 768px) {
-  .header__login-btn {
+  .login-button {
     font-size: 16px;
     column-gap: 13px;
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .login-button {
+    height: 56px;
   }
 }

@@ -3,3 +3,9 @@
   color: var(--main-content-color);
   border-bottom: 3px solid var(--main-content-color);
 }
+
+@media screen and (max-width: 580px) {
+  .navigation__item_active {
+    border: 0;
+  }
+}

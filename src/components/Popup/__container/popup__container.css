@@ -9,9 +9,19 @@
   box-sizing: border-box;
   padding: 36px 34px;
 }
-
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 580px) {
   .popup__container {
-    padding: 22px 25px;
+    padding: 30px var(--580-page-horizontal-padding);
+    max-width: 580px;
+    width: 100%;
   }
 }
+
+@media screen and (max-width: 425px) {
+  .popup__container {
+    padding: 16px var(--425-page-horizontal-padding);
+    max-width: 580px;
+    width: 100%;
+  }
+}
+

@@ -1,14 +1,14 @@
 import CustomLink from "../CustomLink/CustomLink";
 import {useHistory} from 'react-router-dom'
 
-function Navigation({isThemeDark, loggedIn}) {
+function Navigation({isThemeDark, isLoggedIn, onClose = () => {}}) {
   const history = useHistory();
   const location = history.location.pathname;
-
   return (
     <nav className='navigation'>
       <CustomLink
         to='/'
+        onClose={onClose}
         className={`navigation__item navigation__item_type_home${isThemeDark ? ' navigation__item_theme-dark' : ''}
         ${location === '/' ? 
           ` navigation__item_active${isThemeDark ? ' navigation__item_active_theme-dark' : ''}` : 
@@ -16,8 +16,9 @@ function Navigation({isThemeDark, loggedIn}) {
         >
         Home
       </CustomLink>
-      {loggedIn && <CustomLink
+      {isLoggedIn && <CustomLink
         to='/saved-news'
+        onClose={onClose}
         className={`navigation__item navigation__item_type_saved-news${isThemeDark ? ' navigation__item_theme-dark' : ''}
         ${location ==='/saved-news' ?
           ` navigation__item_active${isThemeDark ? ' navigation__item_active_theme-dark' : ''}` :

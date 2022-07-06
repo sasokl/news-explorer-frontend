@@ -7,3 +7,9 @@
     width: 160px;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .navigation__item_type_saved-news {
+    width: 100%;
+  }
+}

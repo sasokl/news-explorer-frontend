@@ -15,6 +15,7 @@ function App() {
 
   //TODO fix the temp solution for logged in variable
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isSearching, setIsSearching] = useState(false);
 
   const [isSignInPopupOpen, setIsSignInPopupOpen] = useState(false);
   const [isSignUpPopupOpen, setIsSignUpPopupOpen] = useState(false);
@@ -41,6 +42,10 @@ function App() {
     setIsMenuPopupOpen(true);
   };
 
+  const handleSearchClick = () => {
+    setIsSearching(true);
+  };
+
   const closeAllPopups = () => {
     setIsSignInPopupOpen(false);
     setIsSignUpPopupOpen(false);
@@ -65,7 +70,9 @@ function App() {
           <Route path="/">
             <Main
               isLoggedIn={isLoggedIn}
-              onSignInClick={handleSignInClick}/>
+              isSearching={isSearching}
+              onSignInClick={handleSignInClick}
+              onSearchClick={handleSearchClick}/>
           </Route>
         </Switch>
         <Footer/>

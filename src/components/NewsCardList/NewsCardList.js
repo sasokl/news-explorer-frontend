@@ -1,8 +1,18 @@
 import NewsCard from "../NewsCard/NewsCard";
+import CirclePreloader from "../CirclePreloader/CirclePreloader";
 
-function NewsCardList({isLoggedIn, location, onSignInClick}) {
-  // These card's data below are temporary till I'll finish stage 3.
-  return (
+function NewsCardList({isLoggedIn, location, onSignInClick, isSearching}) {
+  // These section's data below are temporary till I'll finish stage 3.
+
+  const notFoundSection =
+    <section className='news-card-list news-card-list_type_not-found'>
+      <div className="news-card-list__not-found-icon"/>
+      <h2 className="news-card-list__title news-card-list__title_type_not-found">Nothing found</h2>
+      <p className="news-card-list__text news-card-list__text_type_not-found">Sorry, but nothing matched
+        your search terms.</p>
+    </section>;
+
+  const content = !isSearching ?
     <section className='news-card-list'>
       {location === '/' && <h2 className='news-card-list__title'>Search results</h2>}
       <div className='news-card-list__cards'>
@@ -47,7 +57,16 @@ function NewsCardList({isLoggedIn, location, onSignInClick}) {
       <button className="news-card-list__button">
         Show more
       </button>
-    </section>
+    </section> :
+    <section className='news-card-list news-card-list_type_preloader'>
+      <CirclePreloader/>
+      <p className='news-card-list__text'>Searching for news...</p>
+    </section>;
+
+  return (
+    <>
+      {content}
+    </>
   );
 }
 

@@ -27,7 +27,7 @@ function SearchForm({onSubmit}) {
         <p className="search-form__subtitle">Find the latest news on any topic and save them in your personal account.</p>
         <form
           className='search-form__form-elem'
-          onSubmit={()=>{}}>
+          onSubmit={handleSubmit}>
           <input
             type='text'
             name='search-field'
@@ -38,7 +38,6 @@ function SearchForm({onSubmit}) {
             placeholder='Enter topic'
           />
           <button
-            onClick={handleSubmit}
             className="search-form__button"
             onMouseDown={handleButtonMousedown}
             onMouseUp={handleButtonMouseup}

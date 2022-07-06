@@ -4,19 +4,22 @@ function Footer() {
   return (
     <footer className='footer'>
       <p className="footer__copyright">&copy; 2022 Alexander Blaus</p>
-      <nav className="navigation">
+      <div className="footer__content-container">
+        <nav className="navigation">
           <CustomLink to="/" className="navigation__item footer__navigation-item">
-              Home
+            Home
           </CustomLink>
-      </nav>
-      <nav className="navigation footer__social">
+        </nav>
+        <nav className="navigation footer__social">
           <a href="https://github.com/sasokl" className="custom-link footer__social-item footer__social-item_type_git">
             <div className="footer__social-type-git"/>
           </a>
           <CustomLink to="/" className="footer__social-item footer__social-item_type_facebook">
             <div className="footer__social-type-li"/>
           </CustomLink>
-      </nav>
+        </nav>
+      </div>
+
     </footer>
   );
 }

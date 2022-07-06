@@ -26,3 +26,11 @@
     height: 56px;
   }
 }
+
+@media screen and (max-width: 580px) {
+  .news-card-list__button {
+    width: 240px;
+    height: 56px;
+    margin: 0 0 12px;
+  }
+}

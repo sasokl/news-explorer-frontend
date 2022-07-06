@@ -30,3 +30,11 @@
     padding: 0 52px;
   }
 }
+
+@media screen and (max-width: 580px) {
+  .search-form__button {
+    height: 56px;
+    width: 100%;
+    position: static;
+  }
+}

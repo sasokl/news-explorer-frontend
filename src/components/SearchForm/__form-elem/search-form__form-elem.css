@@ -13,3 +13,13 @@
     margin-top: 48px
   }
 }
+
+@media screen and (max-width: 580px) {
+  .search-form__form-elem {
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+    height: 100%;
+    margin-top: 122px
+  }
+}

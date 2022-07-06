@@ -17,3 +17,9 @@
 .search-form__input:focus {
   outline: none;
 }
+
+@media screen and (max-width: 580px) {
+  .search-form__input {
+    height: 56px;
+  }
+}

@@ -7,6 +7,7 @@ import {useState} from "react";
 import SignInPopup from "../SignInPopup/SignInPopup";
 import SignUpPopup from "../SignUpPopup/SIgnUpPopup";
 import SuccessPopup from "../SuccessPopup/SuccessPopup";
+import MenuPopup from "../MenuPopup/MenuPopup";
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
   const [isSignInPopupOpen, setIsSignInPopupOpen] = useState(false);
   const [isSignUpPopupOpen, setIsSignUpPopupOpen] = useState(false);
   const [isSuccessPopupOpen, setIsSuccessPopupOpen] = useState(false);
+  const [isMenuPopupOpen, setIsMenuPopupOpen] = useState(false);
 
   const handleSignIn = () => {
     setIsLoggedIn(true);
@@ -33,10 +35,15 @@ function App() {
     setIsSignUpPopupOpen(true);
   };
 
+  const handleMenuClick = () => {
+    setIsMenuPopupOpen(true);
+  };
+
   const closeAllPopups = () => {
     setIsSignInPopupOpen(false);
     setIsSignUpPopupOpen(false);
     setIsSuccessPopupOpen(false);
+    setIsMenuPopupOpen(false);
   }
 
   return (
@@ -45,6 +52,8 @@ function App() {
         <Header
           isLoggedIn={isLoggedIn}
           onLoginClick={handleSignInClick}
+          onMenuClick={handleMenuClick}
+          closePopup={closeAllPopups}
           setIsLoggedIn={(isLoggedInFlag) => setIsLoggedIn(isLoggedInFlag)}/>
         <Switch>
           <Route path="/saved-news">
@@ -73,6 +82,9 @@ function App() {
         isOpen={isSuccessPopupOpen}
         onClose={closeAllPopups}
         onSignInClick={handleSignInClick}/>
+      <MenuPopup
+        isOpen={isMenuPopupOpen}
+        onClose={closeAllPopups}/>
     </div>
   );
 }

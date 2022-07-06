@@ -12,3 +12,11 @@
     max-height: 232px;
   }
 }
+
+@media screen and (max-width: 580px) {
+  .about__avatar {
+    align-self: center;
+    max-width: 272px;
+    max-height: 272px;
+  }
+}

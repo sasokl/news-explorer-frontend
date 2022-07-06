@@ -1,6 +1,16 @@
 import {useEffect} from "react";
+import useWindowWidth from "../../utils/UseWindowWidth";
 
 function Popup({popupType, isOpen, onClose, children}) {
+
+  const {width} = useWindowWidth();
+  const isMobile = width <= 580;
+
+  useEffect(() => {
+    if (isMobile && (popupType === 'menu' && width > 580)) {
+      onClose();
+    }
+  }, [width])
 
   useEffect(() => {
     if (!isOpen) return;
@@ -24,7 +34,7 @@ function Popup({popupType, isOpen, onClose, children}) {
       className={`popup popup_type_${popupType}${isOpen ? ` popup_open` : ''}`}
       onClick={handleOverlay}
     >
-      <div className={`popup__container`}>
+      <div className={`popup__container${isMobile ? ' popup__container_mobile' : ''}`}>
         <button
           className="popup__close-button"
           onClick={onClose}

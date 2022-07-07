@@ -30,7 +30,7 @@
 
 @media screen and (max-width: 580px) {
   .news-card-list {
-    row-gap: 58px;
+    row-gap: 0;
     padding: 12px var(--580-page-horizontal-padding);
   }
 }

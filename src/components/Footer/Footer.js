@@ -9,14 +9,18 @@ function Footer() {
           <CustomLink to="/" className="navigation__item footer__navigation-item">
             Home
           </CustomLink>
+          <a href="https://practicum.com/" className="custom-link navigation__item footer__navigation-item" target="_blank" rel="noreferrer">
+            Practicum by Yandex
+          </a>
         </nav>
         <nav className="navigation footer__navigation footer__social">
-          <a href="https://github.com/sasokl" className="custom-link footer__social-item footer__social-item_type_git">
-            <div className="footer__social-type-git"/>
+          <a href="https://github.com/sasokl" className="custom-link" target="_blank" rel="noreferrer">
+            <div className="footer__social-item footer__social-item_type_git"/>
           </a>
-          <CustomLink to="/" className="footer__social-item footer__social-item_type_facebook">
-            <div className="footer__social-type-li"/>
-          </CustomLink>
+          {/* I have no facebook account, so I'll just add the global facebook url for now. */}
+          <a href="https://www.facebook.com/" className="custom-link" target="_blank" rel="noreferrer">
+            <div className="footer__social-item footer__social-item_type_facebook"/>
+          </a>
         </nav>
       </div>
 

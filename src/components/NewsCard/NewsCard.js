@@ -48,7 +48,7 @@ function NewsCard({isLoggedIn, location, imgLink, date, title, text, tag, keywor
         className="news-card__image"/>
       <div className="news-card__content">
         <p className='news-card__date'>{date}</p>
-        <h2 className='news-card__title'>{title}</h2>
+        <h3 className='news-card__title'>{title}</h3>
         <p className='news-card__text'>{text}</p>
         <p className='news-card__tag'>{tag}</p>
       </div>

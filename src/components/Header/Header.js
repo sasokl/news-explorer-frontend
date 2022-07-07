@@ -25,8 +25,8 @@ function Header({isLoggedIn, setIsLoggedIn, onLoginClick, onMenuClick, history})
     <button onClick={onMenuClick} className={`header__menu-btn ${isThemeDark ? 'header__menu-btn_white' : 'header__menu-btn_black'}`}/>;
 
   return (
-    <header className={`header${isThemeDark ? ' header_theme-dark' : ''}`}>
-      <CustomLink to='/' className={`header__logo logo${isThemeDark ? ' logo_theme-dark' : ''}`}>
+    <header className={`header${isThemeDark ? ' header_theme_dark' : ''}`}>
+      <CustomLink to='/' className={`header__logo logo${isThemeDark ? ' logo_theme_dark' : ''}`}>
         News Explorer
       </CustomLink>
       {contentContainer}

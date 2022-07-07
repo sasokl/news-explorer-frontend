@@ -31,13 +31,13 @@
 
 @media screen and (max-width: 580px) {
   .saved-news-header {
-    padding: 90px var(--580-page-horizontal-padding) 32px;
+    padding: 64px var(--580-page-horizontal-padding) 32px;
   }
 }
 
 @media screen and (max-width: 425px) {
   .saved-news-header {
     min-height: 302px;
-    padding: 90px var(--425-page-horizontal-padding) 32px;
+    padding: 64px var(--425-page-horizontal-padding) 32px;
   }
 }

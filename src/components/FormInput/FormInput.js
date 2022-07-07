@@ -1,4 +1,16 @@
+import {useState} from "react";
+
 function FormInput({type, name, value, handleChange, placeholder, minLength = 0, maxLength = 1024, isRequired = false, popupType = ''}) {
+
+  const [errorText, setErrorText] = useState('');
+
+  const handleTextChanged = (e) => {
+    handleChange(e);
+    console.log(e.target.validity.valid)
+    console.log(e.target.validationMessage)
+    setErrorText(!e.target.validity.valid ? e.target.validationMessage : '')
+  }
+
   return (
     <label className="form-input__label">
       {name.charAt(0).toUpperCase() + name.slice(1)}
@@ -8,13 +20,13 @@ function FormInput({type, name, value, handleChange, placeholder, minLength = 0,
         id={`${popupType}-${name}-input`}
         className={`form-input`}
         value={value || ''}
-        onChange={handleChange}
+        onChange={handleTextChanged}
         minLength={minLength}
         maxLength={maxLength}
         required={isRequired}
         placeholder={placeholder}
       />
-      <span className={`form-input__error ${name}-input-error`}/>
+      <span className={`form-input__error ${name}-input-error`}>{errorText}</span>
     </label>
   );
 }

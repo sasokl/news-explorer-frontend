@@ -14,7 +14,7 @@ function MenuPopup({isLoggedIn, setIsLoggedIn, onLoginClick, history, isOpen, on
     popupType='menu'
     isOpen={isOpen}
     onClose={onClose}>
-      <CustomLink to='/' className={`menu-popup__logo logo logo_theme-dark`}>
+      <CustomLink to='/' className={`menu-popup__logo logo logo_theme_dark`}>
         News Explorer
       </CustomLink>
       <Navigation

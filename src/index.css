@@ -13,7 +13,7 @@
 @import url(./components/CustomLink/custom-link.css);
 /* --- Link --- */
 @import url(./components/Logo/logo.css);
-@import url(./components/Logo/_theme-dark/logo_theme-dark.css);
+@import url(components/Logo/_theme/logo_theme_dark.css);
 /* --- Circle Preloader --- */
 @import url(./components/CirclePreloader/circle-preloader.css);
 /* --- Navigation --- */
@@ -21,14 +21,14 @@
 @import url(./components/Navigation/__item/navigation__item.css);
 @import url(./components/Navigation/__item/_type/navigation__item_type_home.css);
 @import url(./components/Navigation/__item/_type/navigation__item_type_saved-news.css);
-@import url(./components/Navigation/__item/_theme-dark/navigation__item_theme-dark.css);
+@import url(components/Navigation/__item/_theme/navigation__item_theme_dark.css);
 @import url(./components/Navigation/__item/_active/navigation__item_active.css);
-@import url(./components/Navigation/__item/_active/_theme-dark/navigation__item_active_theme-dark.css);
+@import url(components/Navigation/__item/_active/_theme/navigation__item_active_theme_dark.css);
 /* --- Login Button --- */
 @import url(./components/LoginButton/login-button.css);
 @import url(components/LoginButton/_type/login-button_type_login.css);
 @import url(components/LoginButton/_type/login-button_type_logout.css);
-@import url(components/LoginButton/_theme-dark/login-button_theme-dark.css);
+@import url(components/LoginButton/_theme/login-button_theme_dark.css);
 
 @import url(components/LoginButton/__logout-icon/login-button__logout-icon.css);
 @import url(components/LoginButton/__logout-icon/_color/login-button__logout-icon_color_black.css);
@@ -74,7 +74,7 @@
 /* ================== Header ================== */
 
 @import url(./components/Header/header.css);
-@import url(./components/Header/_theme-dark/header_theme-dark.css);
+@import url(components/Header/_theme/header_theme_dark.css);
 
 @import url(./components/Header/__logo/header__logo.css);
 

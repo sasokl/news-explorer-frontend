@@ -53,7 +53,7 @@ function SignUpPopup({isOpen, onClose, onSignUp, onSignInClick}) {
         value={password}
         handleChange={handlePasswordChange}
         placeholder="Enter password"
-        minLength="1"
+        minLength="6"
         maxLength="30"
         isRequired={true}/>
       <FormInput
@@ -63,7 +63,7 @@ function SignUpPopup({isOpen, onClose, onSignUp, onSignInClick}) {
         value={username}
         handleChange={handleUsernameChange}
         placeholder="Enter username"
-        minLength="1"
+        minLength="3"
         maxLength="30"
         isRequired={true}/>
     </PopupWithForm>

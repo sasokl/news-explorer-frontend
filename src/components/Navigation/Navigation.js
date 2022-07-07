@@ -9,9 +9,9 @@ function Navigation({isThemeDark, isLoggedIn, onClose = () => {}}) {
       <CustomLink
         to='/'
         onClose={onClose}
-        className={`navigation__item navigation__item_type_home${isThemeDark ? ' navigation__item_theme-dark' : ''}
+        className={`navigation__item navigation__item_type_home${isThemeDark ? ' navigation__item_theme_dark' : ''}
         ${location === '/' ? 
-          ` navigation__item_active${isThemeDark ? ' navigation__item_active_theme-dark' : ''}` : 
+          ` navigation__item_active${isThemeDark ? ' navigation__item_active_theme_dark' : ''}` : 
           ''}`}
         >
         Home
@@ -19,9 +19,9 @@ function Navigation({isThemeDark, isLoggedIn, onClose = () => {}}) {
       {isLoggedIn && <CustomLink
         to='/saved-news'
         onClose={onClose}
-        className={`navigation__item navigation__item_type_saved-news${isThemeDark ? ' navigation__item_theme-dark' : ''}
+        className={`navigation__item navigation__item_type_saved-news${isThemeDark ? ' navigation__item_theme_dark' : ''}
         ${location ==='/saved-news' ?
-          ` navigation__item_active${isThemeDark ? ' navigation__item_active_theme-dark' : ''}` :
+          ` navigation__item_active${isThemeDark ? ' navigation__item_active_theme_dark' : ''}` :
           ''}`}
       >
         Saved articles

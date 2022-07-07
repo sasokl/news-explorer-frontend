@@ -17,6 +17,9 @@
 .search-form__input:focus {
   outline: none;
 }
+.search-form__input::placeholder {
+  color: var(--secondary-content-color);
+}
 
 @media screen and (max-width: 580px) {
   .search-form__input {

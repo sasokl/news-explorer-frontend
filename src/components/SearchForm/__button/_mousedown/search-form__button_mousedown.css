@@ -1,7 +1,0 @@
-.search-form__button_mousedown {
-  background-color: var(--form-button-bg-clicked);
-}
-
-.search-form__button_mousedown:hover {
-  background-color: var(--form-button-bg-clicked);
-}

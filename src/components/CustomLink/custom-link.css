@@ -1,8 +1,0 @@
-.custom-link {
-  text-decoration: none;
-  transition: var(--link-transition);
-}
-
-.custom-link:not(:active):hover {
-  opacity: var(--hovered-link-opacity)
-}

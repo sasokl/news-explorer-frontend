@@ -1,7 +1,0 @@
-.news-card__button_type_trash {
-  background-image: url(../../../../images/trash-default.svg);
-}
-
-.news-card__button_type_trash:hover {
-  background-image: url(../../../../images/trash-hovered.svg);
-}

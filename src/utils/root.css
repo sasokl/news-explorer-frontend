@@ -1,0 +1,5 @@
+.root {
+  font-family: 'Roboto', 'Inter', Arial, sans-serif;
+  background-color: var(--main-bg);
+  color: var(--main-content-color);
+}

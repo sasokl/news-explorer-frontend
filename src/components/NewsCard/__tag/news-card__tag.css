@@ -1,0 +1,22 @@
+.news-card__tag {
+  font-family: 'Roboto-Slab', Ariel, sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  color: var(--secondary-content-color);
+  margin: 18px 0 0;
+}
+
+@media screen and (max-width: 768px) {
+  .news-card__tag {
+    margin: 12px 0 0;
+  }
+}

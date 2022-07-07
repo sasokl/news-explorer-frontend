@@ -1,0 +1,4 @@
+.login-button_theme_dark {
+  color: var(--dark-bg-content-color);
+  border-color: var(--dark-bg-content-color);
+}

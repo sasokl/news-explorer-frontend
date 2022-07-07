@@ -1,0 +1,29 @@
+.variables {
+  --main-bg: #F5F6F7;
+  --secondary-bg: #FFFFFF;
+
+  --error-content-color: #FF0000;
+
+  --main-content-color: #1A1B22;
+  --secondary-content-color: #B6BCBF;
+  --bold-content-color: #000000;
+  --dark-bg-content-color: #FFFFFF;
+
+  --form-button-bg: #2F71E5;
+  --form-button-bg-hovered: #347EFF;
+  --form-button-bg-clicked: #2A65CC;
+
+  --1440-page-horizontal-padding: 104px;
+  --1280-page-horizontal-padding: 76px;
+  --1024-page-horizontal-padding: 61px;
+  --768-page-horizontal-padding: 40px;
+  --580-page-horizontal-padding: 30px;
+  --425-page-horizontal-padding: 16px;
+
+  --link-transition: opacity .3s linear;
+  --form-button-transition: background-color .3s linear;
+  --hovered-link-opacity: .8;
+
+
+  --hovered-popup-submit-button-opacity: .8;
+}

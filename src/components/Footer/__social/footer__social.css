@@ -2,3 +2,9 @@
   flex-direction: row;
   column-gap: 24px;
 }
+
+@media screen and (max-width: 580px) {
+  .footer__social {
+    align-self: flex-start;
+  }
+}

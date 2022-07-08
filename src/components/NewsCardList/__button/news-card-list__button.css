@@ -29,7 +29,7 @@
 
 @media screen and (max-width: 580px) {
   .news-card-list__button {
-    width: 240px;
+    width: 100%;
     height: 56px;
     margin: 16px 0 12px;
   }

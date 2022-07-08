@@ -46,7 +46,7 @@ function SignInPopup({isOpen, onClose, onSignIn, onSignUpClick}) {
           value={password}
           handleChange={handlePasswordChange}
           placeholder="Enter password"
-          minLength="1"
+          minLength="6"
           maxLength="30"
           isRequired={true}/>
       </PopupWithForm>

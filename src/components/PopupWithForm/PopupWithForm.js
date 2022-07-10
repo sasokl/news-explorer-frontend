@@ -9,6 +9,7 @@ function PopupWithForm({
                          onSubmit,
                          onRedirect,
                          submitButtonText,
+                         fetchError,
                          children
                        }) {
 
@@ -27,7 +28,8 @@ function PopupWithForm({
         name={popupType}
         onSubmit={onSubmit}
         submitButtonText={submitButtonText}
-        submitButtonClassName={`popup__submit-button`}>
+        submitButtonClassName={`popup__submit-button`}
+        fetchError={fetchError}>
         {children}
       </PopupForm>
       <p className='popup__text'>or <span onClick={handleRedirectClick} className='popup__link'>{`${popupType === 'signin' ? 'Sign up' : 'Sign in'}`}</span>

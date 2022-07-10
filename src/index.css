@@ -71,6 +71,7 @@
 @import url(./components/FormInput/form-input.css);
 @import url(./components/FormInput/__label/form-input__label.css);
 @import url(./components/FormInput/__error/form-input__error.css);
+@import url(./components/FormInput/__error/_type/form-input__error_type_submit.css);
 /* ================== Header ================== */
 
 @import url(./components/Header/header.css);

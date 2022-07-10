@@ -6,8 +6,6 @@ function FormInput({type, name, value, handleChange, placeholder, minLength = 0,
 
   const handleTextChanged = (e) => {
     handleChange(e);
-    console.log(e.target.validity.valid)
-    console.log(e.target.validationMessage)
     setErrorText(!e.target.validity.valid ? e.target.validationMessage : '')
   }
 

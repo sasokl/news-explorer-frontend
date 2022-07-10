@@ -14,7 +14,7 @@
   border-radius: 100px;
   transition: var(--form-button-transition);
   padding: 0;
-  margin: 24px 0 0;
+  margin: 8px 0 0;
 }
 
 .popup__submit-button:hover {

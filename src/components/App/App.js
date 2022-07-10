@@ -4,8 +4,9 @@ import SavedNews from "../SavedNews/SavedNews";
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
 import {useState} from "react";
+import * as auth from "../../utils/AuthApi"
 import SignInPopup from "../SignInPopup/SignInPopup";
-import SignUpPopup from "../SignUpPopup/SIgnUpPopup";
+import SignUpPopup from "../SignUpPopup/SignUpPopup";
 import SuccessPopup from "../SuccessPopup/SuccessPopup";
 import MenuPopup from "../MenuPopup/MenuPopup";
 
@@ -26,8 +27,15 @@ function App() {
     setIsLoggedIn(true);
   };
 
-  const handleSignUp = () => {
-    setIsSuccessPopupOpen(true)
+  const handleSignUp = (email, password, username) => {
+    return auth.register(email, password, username)
+      .then((res) => {
+        if (res.ok) {
+          closeAllPopups();
+          setIsSuccessPopupOpen(true);
+        }
+        else return res.json();
+      })
   };
 
   const handleSignInClick = () => {

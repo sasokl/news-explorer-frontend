@@ -1,14 +1,17 @@
+import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import Header from '../Header/Header';
 import {Route, Switch, useHistory, withRouter} from "react-router-dom";
 import SavedNews from "../SavedNews/SavedNews";
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import * as auth from "../../utils/AuthApi"
 import SignInPopup from "../SignInPopup/SignInPopup";
 import SignUpPopup from "../SignUpPopup/SignUpPopup";
 import SuccessPopup from "../SuccessPopup/SuccessPopup";
 import MenuPopup from "../MenuPopup/MenuPopup";
+import api from "../../utils/MainApi";
+
 
 
 function App() {
@@ -16,6 +19,7 @@ function App() {
 
   //TODO fix the temp solution for logged in variable
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [username, setUsername] = useState('');
   const [isSearching, setIsSearching] = useState(false);
 
   const [isSignInPopupOpen, setIsSignInPopupOpen] = useState(false);
@@ -23,9 +27,43 @@ function App() {
   const [isSuccessPopupOpen, setIsSuccessPopupOpen] = useState(false);
   const [isMenuPopupOpen, setIsMenuPopupOpen] = useState(false);
 
-  const handleSignIn = () => {
-    setIsLoggedIn(true);
+  useEffect(() => {
+    checkToken();
+  }, []);
+
+  useEffect(() => {
+
+  }, [isLoggedIn])
+
+  const handleSignIn = (email, password) => {
+    return auth.authorize(email, password)
+      .then(res => {
+        if (res.ok) {
+          res.json()
+            .then(resJson => {
+              localStorage.setItem('jwt', resJson.token);
+              api.updateToken(resJson.token);
+              checkToken()
+              closeAllPopups();
+            })
+        } else return res.json();
+      })
   };
+
+  const checkToken = () => {
+    const jwt = localStorage.getItem('jwt');
+    if (jwt) {
+      auth.checkToken(jwt)
+        .then((res) => {
+          if (res) {
+            setUsername(res.data.name);
+            setIsLoggedIn(true);
+          }
+        });
+    }
+  };
+
+
 
   const handleSignUp = (email, password, username) => {
     return auth.register(email, password, username)
@@ -33,8 +71,7 @@ function App() {
         if (res.ok) {
           closeAllPopups();
           setIsSuccessPopupOpen(true);
-        }
-        else return res.json();
+        } else return res.json();
       })
   };
 
@@ -59,7 +96,7 @@ function App() {
     setIsSignUpPopupOpen(false);
     setIsSuccessPopupOpen(false);
     setIsMenuPopupOpen(false);
-  }
+  };
 
   return (
     <div className="app">
@@ -69,12 +106,13 @@ function App() {
           onLoginClick={handleSignInClick}
           onMenuClick={handleMenuClick}
           setIsLoggedIn={(isLoggedInFlag) => setIsLoggedIn(isLoggedInFlag)}
-          history={history}/>
+          history={history}
+          username={username}/>
         <Switch>
-          <Route path="/saved-news">
+          <ProtectedRoute path="/saved-news" username={username}>
             <SavedNews
               isLoggedIn={isLoggedIn}/>
-          </Route>
+          </ProtectedRoute>
           <Route path="/">
             <Main
               isLoggedIn={isLoggedIn}

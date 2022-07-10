@@ -3,8 +3,7 @@ import Navigation from "../Navigation/Navigation";
 import useWindowWidth from "../../utils/UseWindowWidth";
 import LoginButton from "../LoginButton/LoginButton";
 
-function Header({isLoggedIn, setIsLoggedIn, onLoginClick, onMenuClick, history}) {
-
+function Header({isLoggedIn, setIsLoggedIn, onLoginClick, onMenuClick, history, username}) {
   const {width} = useWindowWidth();
 
   const location = history.location.pathname;
@@ -20,7 +19,8 @@ function Header({isLoggedIn, setIsLoggedIn, onLoginClick, onMenuClick, history})
         isLoggedIn={isLoggedIn}
         isThemeDark={isThemeDark}
         history={history}
-        setIsLoggedIn={setIsLoggedIn}/>
+        setIsLoggedIn={setIsLoggedIn}
+        username={username}/>
     </div> :
     <button onClick={onMenuClick} className={`header__menu-btn ${isThemeDark ? 'header__menu-btn_white' : 'header__menu-btn_black'}`}/>;
 

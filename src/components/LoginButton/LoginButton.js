@@ -1,8 +1,8 @@
-function LoginButton({isLoggedIn, setIsLoggedIn, onLoginClick, history, isThemeDark, onClose}) {
+function LoginButton({isLoggedIn, setIsLoggedIn, onLoginClick, history, isThemeDark, onClose, username}) {
 
   const handleLogout = () => {
+    localStorage.removeItem('jwt');
     setIsLoggedIn(false)
-    onClose();
     history.push('/');
   }
 
@@ -10,7 +10,7 @@ function LoginButton({isLoggedIn, setIsLoggedIn, onLoginClick, history, isThemeD
 
   const loginBtn = isLoggedIn ?
     <button onClick={handleLogout} className={`login-button login-button_type_logout${isThemeDark ? ' login-button_theme_dark' : ''}`}
-            type='submit'>Elise
+            type='submit'>{username}
       <div className={logoutIcon}/>
     </button> :
     <button onClick={onLoginClick} className={`login-button login-button_type_login${isThemeDark ? ' login-button_theme_dark' : ''}`}

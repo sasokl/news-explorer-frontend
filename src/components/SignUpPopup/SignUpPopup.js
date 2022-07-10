@@ -31,8 +31,10 @@ function SignUpPopup({
   const handleSubmit = () => {
     onSignUp(email, password, username)
       .then(res => {
-        setFetchError(res.message);
-        throw new Error(res.message)
+        if(res){
+          setFetchError(res.message);
+          throw new Error(res.message)
+        }
       })
       .catch(logError);
   }

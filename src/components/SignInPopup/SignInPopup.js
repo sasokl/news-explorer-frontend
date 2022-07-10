@@ -1,11 +1,18 @@
 import PopupWithForm from "../PopupWithForm/PopupWithForm";
 import FormInput from "../FormInput/FormInput";
 import {useState} from "react";
+import {logError} from "../../utils/Constants";
 
-function SignInPopup({isOpen, onClose, onSignIn, onSignUpClick}) {
+function SignInPopup({
+                       isOpen,
+                       onClose,
+                       onSignIn,
+                       onSignUpClick
+}) {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [fetchError, setFetchError] = useState('');
 
 
   function handleEmailChange(e) {
@@ -15,9 +22,17 @@ function SignInPopup({isOpen, onClose, onSignIn, onSignUpClick}) {
   function handlePasswordChange(e) {
     setPassword(e.target.value);
   }
+
   const handleSubmit = () => {
-    onSignIn();
-    onClose();
+    onSignIn(email, password)
+      .then(res => {
+        if(res){
+          console.log(res);
+          setFetchError(res.message);
+          throw new Error(res.message)
+        }
+      })
+      .catch(logError);
   }
 
   return (
@@ -28,6 +43,7 @@ function SignInPopup({isOpen, onClose, onSignIn, onSignUpClick}) {
         onClose={onClose}
         onSubmit={handleSubmit}
         onRedirect={onSignUpClick}
+        fetchError={fetchError}
         submitButtonText='Sign in'>
         <FormInput
           popupType='signin'

@@ -8,40 +8,16 @@ export const register = (email, password, name) => {
     },
     body: JSON.stringify({email, password, name})
   })
-    /*.then((response) => {
-      if (!response.ok) {
-        return response.text().then(text => {
-          throw new Error(text)
-        })
-      }
-      return response.json()
-    })
-    .catch(logError)*/
 };
 
-export const authorize = (password, email) => {
+export const authorize = (email, password ) => {
   return fetch(`${BASE_URL}/signin`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({password, email})
+    body: JSON.stringify({email, password })
   })
-    .then((response) => {
-      if (!response.ok) return response
-        .text()
-        .then(text => {
-        throw new Error(text)
-      })
-      return response.json();
-    })
-    .then((res) => {
-      if (res) {
-        localStorage.setItem('jwt', res.token);
-        return res;
-      }
-    })
-    .catch(logError);
 };
 
 export const checkToken = (token) => {

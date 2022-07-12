@@ -13,8 +13,15 @@ function SignInPopup({
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [isFormValid, setIsFormValid] = useState(false);
+  const [submitButtonText, setSubmitButtonText] = useState('Sign in');
   const [fetchError, setFetchError] = useState('');
 
+  const clearFormData = () => {
+    setEmail('');
+    setPassword('');
+    setFetchError('');
+  }
 
   function handleEmailChange(e) {
     setEmail(e.target.value);
@@ -25,14 +32,18 @@ function SignInPopup({
   }
 
   const handleSubmit = () => {
-    onSignIn(email, password)
+    setSubmitButtonText('Signing in...');
+    onSignIn(email, password, clearFormData)
       .then(res => {
         if (res) {
           setFetchError(res.message);
           throw new Error(res.message)
         }
       })
-      .catch(logError);
+      .catch(logError)
+      .finally(() => {
+        setSubmitButtonText('Sign in');
+      });
   }
 
   const handleEmailValidation = (email) => {
@@ -48,7 +59,8 @@ function SignInPopup({
       onSubmit={handleSubmit}
       onRedirect={onSignUpClick}
       fetchError={fetchError}
-      submitButtonText='Sign in'>
+      submitButtonText={submitButtonText}
+      isFormValid={isFormValid}>
       <FormInput
         popupType='signin'
         type="email"
@@ -59,7 +71,8 @@ function SignInPopup({
         minLength="1"
         maxLength="30"
         isRequired={true}
-        customValidator={handleEmailValidation}/>
+        customValidator={handleEmailValidation}
+        setIsFormValid={setIsFormValid}/>
       <FormInput
         popupType='signin'
         type="password"
@@ -68,7 +81,8 @@ function SignInPopup({
         handleChange={handlePasswordChange}
         placeholder="Enter password"
         maxLength="30"
-        isRequired={true}/>
+        isRequired={true}
+        setIsFormValid={setIsFormValid}/>
     </PopupWithForm>
   );
 }

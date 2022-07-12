@@ -3,6 +3,7 @@ function PopupForm({
                      submitButtonText,
                      onSubmit,
                      fetchError,
+                     isFormValid,
                      children
 }) {
 
@@ -33,7 +34,7 @@ function PopupForm({
           onMouseDown={handleButtonMousedown}
           onMouseUp={handleButtonMouseup}
           onMouseLeave={handleButtonMouseup}
-          className='popup__submit-button'
+          className={`popup__submit-button${!isFormValid ? ' popup__submit-button_inactive' : ''}`}
           type="submit">
           {submitButtonText}
         </button>

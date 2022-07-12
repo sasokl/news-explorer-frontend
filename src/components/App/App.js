@@ -36,7 +36,7 @@ function App() {
   useEffect(() => {
     checkToken();
     const localStorageSearchedArray = JSON.parse(localStorage.getItem('searched-articles'));
-    if(localStorageSearchedArray) setCards(localStorageSearchedArray);
+    if (localStorageSearchedArray) setCards(localStorageSearchedArray);
   }, []);
 
   useEffect(() => {
@@ -49,7 +49,7 @@ function App() {
     }
   }, [isLoggedIn]);
 
-  const handleSignIn = (email, password) => {
+  const handleSignIn = (email, password, formClearData) => {
     return auth.authorize(email, password)
       .then(res => {
         if (res.ok) {
@@ -58,6 +58,7 @@ function App() {
               localStorage.setItem('jwt', resJson.token);
               mainApi.updateToken(resJson.token);
               checkToken()
+              formClearData();
               closeAllPopups();
             })
         } else return res.json();
@@ -78,15 +79,15 @@ function App() {
         .finally(() => {
           setIsTokenChecked(true);
         });
-    }
-    else setIsTokenChecked(true)
+    } else setIsTokenChecked(true)
   };
 
 
-  const handleSignUp = (email, password, username) => {
+  const handleSignUp = (email, password, username, clearFormData) => {
     return auth.register(email, password, username)
       .then((res) => {
         if (res.ok) {
+          clearFormData();
           closeAllPopups();
           setIsSuccessPopupOpen(true);
         } else return res.json();

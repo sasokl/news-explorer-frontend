@@ -60,6 +60,7 @@
 @import url(./components/Popup/__fieldset/popup__fieldset.css);
 @import url(./components/Popup/__submit-button/popup__submit-button.css);
 @import url(./components/Popup/__submit-button/_mousedown/popup__submit-button_mousedown.css);
+@import url(./components/Popup/__submit-button/_inactive/popup__submit-button_inactive.css);
 @import url(./components/Popup/__text/popup__text.css);
 @import url(./components/Popup/__link/popup__link.css);
 @import url(./components/Popup/__link/_type/popup__link_type_success.css);

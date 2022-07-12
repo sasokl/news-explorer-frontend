@@ -14,8 +14,16 @@ function SignUpPopup({
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [username, setUsername] = useState('');
+  const [isFormValid, setIsFormValid] = useState(false);
+  const [submitButtonText, setSubmitButtonText] = useState('Sign up');
   const [fetchError, setFetchError] = useState('');
 
+  const clearFormData = () => {
+    setEmail('');
+    setPassword('');
+    setUsername('');
+    setFetchError('');
+  }
 
   function handleEmailChange(e) {
     setEmail(e.target.value);
@@ -30,14 +38,18 @@ function SignUpPopup({
   }
 
   const handleSubmit = () => {
-    onSignUp(email, password, username)
+    setSubmitButtonText('Creating account..');
+    onSignUp(email, password, username, clearFormData, setSubmitButtonText)
       .then(res => {
         if (res) {
           setFetchError(res.message);
           throw new Error(res.message)
         }
       })
-      .catch(logError);
+      .catch(logError)
+      .finally(() => {
+        setSubmitButtonText('Sign up');
+      });
   }
 
   const handleEmailValidation = (email) => {
@@ -53,7 +65,8 @@ function SignUpPopup({
       onSubmit={handleSubmit}
       onRedirect={onSignInClick}
       fetchError={fetchError}
-      submitButtonText='Sign up'>
+      submitButtonText={submitButtonText}
+      isFormValid={isFormValid}>
       <FormInput
         popupType='signup'
         type="email"
@@ -64,7 +77,8 @@ function SignUpPopup({
         minLength="1"
         maxLength="30"
         isRequired={true}
-        customValidator={handleEmailValidation}/>
+        customValidator={handleEmailValidation}
+        setIsFormValid={setIsFormValid}/>
       <FormInput
         popupType='signup'
         type="password"
@@ -74,7 +88,8 @@ function SignUpPopup({
         placeholder="Enter password"
         minLength="8"
         maxLength="30"
-        isRequired={true}/>
+        isRequired={true}
+        setIsFormValid={setIsFormValid}/>
       <FormInput
         popupType='signup'
         type="text"
@@ -84,7 +99,8 @@ function SignUpPopup({
         placeholder="Enter username"
         minLength="3"
         maxLength="30"
-        isRequired={true}/>
+        isRequired={true}
+        setIsFormValid={setIsFormValid}/>
     </PopupWithForm>
   );
 }

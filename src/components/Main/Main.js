@@ -9,6 +9,7 @@ function Main({
                 onDeleteArticle,
                 onSearchClick,
                 isSearching,
+                savedArticles,
                 cards
               }) {
   return (
@@ -21,6 +22,7 @@ function Main({
         isSearching={isSearching}
         onSaveArticle={onSaveArticle}
         onDeleteArticle={onDeleteArticle}
+        savedArticles={savedArticles}
         cards={cards}
         location='/'
         onSignInClick={onSignInClick}/>

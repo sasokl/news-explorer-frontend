@@ -10,6 +10,7 @@ function SavedNews({isLoggedIn, savedArticles, onSignInClick, onDeleteArticle}) 
       isLoggedIn={isLoggedIn}
       location='/saved-news'
       cards={savedArticles}
+      savedArticles={savedArticles}
       onSignInClick={onSignInClick}
       onDeleteArticle={onDeleteArticle}/>
     </main>

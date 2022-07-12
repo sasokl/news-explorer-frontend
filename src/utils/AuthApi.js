@@ -1,4 +1,4 @@
-import {BASE_URL, logError} from "./Constants";
+import {BASE_URL} from "./Constants";
 
 export const register = (email, password, name) => {
   return fetch(`${BASE_URL}/signup`, {
@@ -36,5 +36,4 @@ export const checkToken = (token) => {
       })
       return response.json();
     })
-    .catch(logError);
 }

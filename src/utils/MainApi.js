@@ -27,15 +27,6 @@ class Api {
   }
 
   /**
-   * Returns user's info from the server
-   * @returns {Promise<never>}
-   */
-  getUser() {
-    return fetch(`${this._baseUrl}/users/me`, {headers: this._headers})
-      .then(this._checkRes);
-  }
-
-  /**
    * Adds an article to the server
    * @param article
    * @returns {Promise<never>}

@@ -9,7 +9,8 @@ function NewsCardList({
                         location,
                         onSignInClick,
                         isSearching = false,
-                        cards
+                        savedArticles = [],
+                        cards = []
                       }) {
   const [isSearchActivated, setIsSearchActivated] = useState(false);
   const [cardsToShow, setCardsToShow] = useState(3);
@@ -34,48 +35,44 @@ function NewsCardList({
     return `${month} ${splittedDate[2]}, ${splittedDate[3]}`;
   }
 
-  console.log('GGGAAAAYS' + localStorage.getItem('saved-articles') !== null);
-  console.log(isLoggedIn && localStorage.getItem('saved-articles') &&
-  JSON.parse(localStorage.getItem('searched-articles')).find(article => {
-    return !!article.link === cards[1].link;
-  })
-  )
-
   let content = <></>;// Init state
 
   switch (location) {
     case '/saved-news':
       content =
-        <section className='news-card-list'>
-          <div className='news-card-list__cards'>
-            {
-              cards.slice(0, cardsToShow).map((card, i) => {
-                return (
-                  <NewsCard
-                    key={i}
-                    isLoggedIn={isLoggedIn}
-                    isSaved={card.isSaved}
-                    location={location}
-                    onSignInClick={onSignInClick}
-                    onSaveArticle={onSaveArticle}
-                    onDeleteArticle={onDeleteArticle}
-                    link={card.link}
-                    keyword={card.keyword}
-                    image={card.image}
-                    date={timeConvert(card.date)}
-                    title={card.title}
-                    text={card.text}
-                    source={card.source}/>
-                );
-              })
+        cards.length ?
+          <section className='news-card-list'>
+            <div className='news-card-list__cards'>
+              {
+                cards.slice(0, cardsToShow).map((card, i) => {
+                  return (
+                    <NewsCard
+                      key={i}
+                      isLoggedIn={isLoggedIn}
+                      isSaved={card.isSaved}
+                      location={location}
+                      onSignInClick={onSignInClick}
+                      onSaveArticle={onSaveArticle}
+                      onDeleteArticle={onDeleteArticle}
+                      link={card.link}
+                      keyword={card.keyword}
+                      image={card.image}
+                      date={timeConvert(card.date)}
+                      title={card.title}
+                      text={card.text}
+                      source={card.source}/>
+                  );
+                })
+              }
+            </div>
+            {(cards.length > 3 && cardsToShow < cards.length) ?
+              <button onClick={handleShowMore} className="news-card-list__button">
+                Show more
+              </button> :
+              <></>
             }
-          </div>
-          {(cards.length > 3 && cardsToShow < cards.length) ?
-            <button onClick={handleShowMore} className="news-card-list__button">
-              Show more
-            </button> : <></>
-          }
-        </section>
+          </section> :
+          <></>;
       break;
     case '/':
       if (isSearching) { // In searching progress (preloader showed)
@@ -105,10 +102,10 @@ function NewsCardList({
                         key={i}
                         isLoggedIn={isLoggedIn}
                         isSaved={
-                          isLoggedIn && localStorage.getItem('saved-articles') !== null &&
-                          JSON.parse(localStorage.getItem('searched-articles')).find(article => {
-                            return !!article.link === card.link;
-                          })
+                          isLoggedIn && savedArticles &&
+                          !!(savedArticles.find(article => {
+                            return (article.link === card.link);
+                          }))
                         }
                         location={location}
                         onSignInClick={onSignInClick}

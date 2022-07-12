@@ -20,12 +20,13 @@ function App() {
   const history = useHistory();
 
   //TODO fix the temp solution for logged in variable
+  const [isTokenChecked, setIsTokenChecked] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState({});
-  const [username, setUsername] = useState('');
   const [isSearching, setIsSearching] = useState(false);
   const [cards, setCards] = useState([]);
   const [savedArticles, setSavedArticles] = useState([]);
+
 
   const [isSignInPopupOpen, setIsSignInPopupOpen] = useState(false);
   const [isSignUpPopupOpen, setIsSignUpPopupOpen] = useState(false);
@@ -40,29 +41,13 @@ function App() {
 
   useEffect(() => {
     if (isLoggedIn) {
-      mainApi.getUser()
-        .then(user => {
-          setCurrentUser(user.data);
-
-
-        })
-        .catch(logError)
-
       mainApi.getArticles()
         .then(articles => {
-          setSavedArticles(articles.data);
-          localStorage.setItem('saved-articles', JSON.stringify(savedArticles))
+          setSavedArticles([...articles.data]);
         })
         .catch(logError)
     }
-    else {
-      clearData();
-    }
   }, [isLoggedIn]);
-
-  useEffect(() => {
-    console.log(savedArticles)
-  }, [savedArticles])
 
   const handleSignIn = (email, password) => {
     return auth.authorize(email, password)
@@ -83,13 +68,19 @@ function App() {
     const jwt = localStorage.getItem('jwt');
     if (jwt) {
       auth.checkToken(jwt)
-        .then((res) => {
-          if (res) {
-            setUsername(res.data.name);
+        .then((user) => {
+          if (user) {
+            setCurrentUser(user.data);
             setIsLoggedIn(true);
           }
+        })
+        .catch(logError)
+        .finally(() => {
+          console.log('dead')
+          setIsTokenChecked(true);
         });
     }
+    else setIsTokenChecked(true)
   };
 
 
@@ -146,19 +137,18 @@ function App() {
   };
 
   const handleSaveArticle = (article) => {
-    return mainApi.saveArticle(article)
+    mainApi.saveArticle(article)
       .then(article => {
         setSavedArticles([article.data, ...savedArticles]);
-        localStorage.setItem('saved-articles', JSON.stringify(savedArticles));
       })
+      .catch(logError)
   }
 
   const handleDeleteArticle = (articleLink) => {
     const articleID = savedArticles.find(article => article.link === articleLink)._id;
-    return mainApi.deleteArticle(articleID)
+    mainApi.deleteArticle(articleID)
       .then(() => {
         setSavedArticles(state => state.filter(item => item._id !== articleID));
-        localStorage.setItem('saved-articles', JSON.stringify(savedArticles));
       })
       .catch(logError);
   }
@@ -172,7 +162,6 @@ function App() {
 
   const clearData = () => {
     localStorage.removeItem('jwt');
-    localStorage.removeItem('saved-articles');
   }
 
   return (
@@ -182,12 +171,12 @@ function App() {
           <Header
             isLoggedIn={isLoggedIn}
             onLoginClick={handleSignInClick}
+            onLogout={clearData}
             onMenuClick={handleMenuClick}
             setIsLoggedIn={(isLoggedInFlag) => setIsLoggedIn(isLoggedInFlag)}
-            history={history}
-            username={username}/>
+            history={history}/>
           <Switch>
-            <ProtectedRoute path="/saved-news" username={username}>
+            <ProtectedRoute path="/saved-news" isLoggedIn={isLoggedIn} isTokenChecked={isTokenChecked}>
               <SavedNews
                 isLoggedIn={isLoggedIn}
                 savedArticles={savedArticles}
@@ -200,6 +189,7 @@ function App() {
                 isSearching={isSearching}
                 onSaveArticle={handleSaveArticle}
                 onDeleteArticle={handleDeleteArticle}
+                savedArticles={savedArticles}
                 cards={cards}
                 onSignInClick={handleSignInClick}
                 onSearchClick={handleSearchClick}/>

@@ -5,8 +5,8 @@
  */
 export const logError = (err) => console.log(err);
 
-//export const BASE_URL = 'https://api.ab-news-explorer.students.nomoreparties.sbs';
-export const BASE_URL = 'http://localhost:3000';
+export const BASE_URL = 'https://api.ab-news-explorer.students.nomoreparties.sbs';
+
 
 // ======================== NewsApi ======================== //
 /**

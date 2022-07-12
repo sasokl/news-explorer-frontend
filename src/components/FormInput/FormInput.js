@@ -1,12 +1,14 @@
 import {useState} from "react";
 
-function FormInput({type, name, value, handleChange, placeholder, minLength = 0, maxLength = 1024, isRequired = false, popupType = ''}) {
+function FormInput({type, name, value, handleChange, placeholder, minLength = 0, maxLength = 1024, isRequired = false, popupType = '', customValidator = ''}) {
 
   const [errorText, setErrorText] = useState('');
 
   const handleTextChanged = (e) => {
     handleChange(e);
-    setErrorText(!e.target.validity.valid ? e.target.validationMessage : '')
+    const customError = customValidator !== '' ? customValidator(e.target.value) : '';
+    const defaultError = !e.target.validity.valid ? e.target.validationMessage : '';
+    setErrorText(customError === '' ? defaultError : customError);
   }
 
   return (

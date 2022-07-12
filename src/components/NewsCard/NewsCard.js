@@ -1,5 +1,4 @@
-import {useState} from "react";
-import {logError} from "../../utils/Constants";
+import {useEffect, useState} from "react";
 
 function NewsCard({
                     isLoggedIn,
@@ -20,8 +19,12 @@ function NewsCard({
   const [saved, setSaved] = useState(isSaved);
   const [btnMessage, setBtnMessage] = useState(null);
 
-  console.log(saved);
-  const handleButtonEnter = () => {
+  useEffect(() => {
+    setSaved(isSaved);
+  }, [isSaved]);
+
+  const handleButtonEnter = (e) => {
+
     if (!isLoggedIn) {
       if (location === '/') setBtnMessage(<p className='news-card__btn-message'>Sign in to save articles</p>);
     } else {
@@ -33,15 +36,13 @@ function NewsCard({
     setBtnMessage(null);
   }
 
-  const handleDeleteArticle = () => {
-    onDeleteArticle(link)
-      .then(() => {
-        setSaved(false);
-      })
-      .catch(logError);
+  const handleDeleteArticle = (e) => {
+    e.preventDefault();
+    onDeleteArticle(link);
   }
 
-  const handleSaveArticle = () => {
+  const handleSaveArticle = (e) => {
+    e.preventDefault();
       const article = {
         keyword,
         title,
@@ -51,20 +52,15 @@ function NewsCard({
         link,
         image,
       };
-      onSaveArticle(article)
-        .then(() => {
-          setSaved(true);
-        })
-        .catch(logError)
-
+      onSaveArticle(article);
   }
 
-  const toggleSaveDelete = () => {
-
+  const toggleSaveDelete = (e) => {
     if (isLoggedIn) {
-      if(saved) handleDeleteArticle();
-      else handleSaveArticle();
+      if(saved) handleDeleteArticle(e);
+      else handleSaveArticle(e);
     } else {
+      e.preventDefault();
       onSignInClick();
     }
   }
@@ -75,10 +71,10 @@ function NewsCard({
     <button onMouseEnter={handleButtonEnter} onMouseLeave={handleButtonLeave} onClick={handleDeleteArticle}
             className={`news-card__button news-card__button_type_trash`}></button> :
     <button onMouseEnter={handleButtonEnter} onMouseLeave={handleButtonLeave} onClick={toggleSaveDelete}
-            className={`news-card__button${saved ? ' news-card__button_type_marked' : ' news-card__button_type_save'}`}></button>
+            className={`news-card__button${saved ? ' news-card__button_type_marked' : ' news-card__button_type_save'}`}></button>;
 
   return (
-    <div className='news-card'>
+    <a href={link} className='news-card' target='_blank' rel="noreferrer">
       <div className="news-card__tools-row">
         {location === '/saved-news' && keywordTool}
         {btnMessage}
@@ -94,7 +90,7 @@ function NewsCard({
         <p className='news-card__text'>{text}</p>
         <p className='news-card__source'>{source}</p>
       </div>
-    </div>
+    </a>
   );
 }
 

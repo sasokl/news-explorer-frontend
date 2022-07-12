@@ -1,10 +1,21 @@
 import React from 'react';
-import { Route, Redirect } from 'react-router-dom';
+import {Route, Redirect} from 'react-router-dom';
+import CirclePreloader from "../CirclePreloader/CirclePreloader";
 
-function ProtectedRoute({ children, username, path }) {
+function ProtectedRoute({children, isLoggedIn, path, isTokenChecked}) {
+  console.log('isTokenChecked ')
+  console.log(isTokenChecked)
+  console.log('isLoggedIn ')
+  console.log(isLoggedIn)
   return (
     <Route path={path}>
-      {username === '' ? <Redirect to={"/"} /> : children  }
+      {
+        isTokenChecked ?
+          isLoggedIn ? children : <Redirect to={"/"}/> :
+          <section className="saved-news-header">
+            <CirclePreloader/>
+          </section>
+      }
     </Route>
   );
 }

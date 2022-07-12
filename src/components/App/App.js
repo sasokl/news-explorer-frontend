@@ -76,7 +76,6 @@ function App() {
         })
         .catch(logError)
         .finally(() => {
-          console.log('dead')
           setIsTokenChecked(true);
         });
     }

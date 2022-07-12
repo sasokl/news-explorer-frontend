@@ -1,4 +1,4 @@
-.news-card__tag {
+.news-card__source {
   font-family: 'Roboto-Slab', Ariel, sans-serif;
   font-style: normal;
   font-weight: 700;
@@ -16,7 +16,7 @@
 }
 
 @media screen and (max-width: 768px) {
-  .news-card__tag {
+  .news-card__source {
     margin: 12px 0 0;
   }
 }

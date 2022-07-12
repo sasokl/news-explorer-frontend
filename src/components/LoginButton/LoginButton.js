@@ -1,7 +1,6 @@
 function LoginButton({isLoggedIn, setIsLoggedIn, onLoginClick, history, isThemeDark, onClose, username}) {
 
   const handleLogout = () => {
-    localStorage.removeItem('jwt');
     setIsLoggedIn(false)
     history.push('/');
   }

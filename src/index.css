@@ -47,7 +47,7 @@
 @import url(./components/NewsCard/__date/news-card__date.css);
 @import url(./components/NewsCard/__title/news-card__title.css);
 @import url(./components/NewsCard/__text/news-card__text.css);
-@import url(./components/NewsCard/__tag/news-card__tag.css);
+@import url(components/NewsCard/__source/news-card__source.css);
 /* --- Popup --- */
 @import url(./components/Popup/popup.css);
 @import url(./components/Popup/_open/popup_open.css);

@@ -1,8 +1,11 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
-function SearchForm({onSubmit}) {
+function SearchForm({onSubmit, cards}) {
   const [searchText, setSearchText] = useState('');
 
+  useEffect(() => {
+    if(cards.length) setSearchText(cards[0].keyword);
+  }, [cards])
   const handleSearchTextChange = (e) => {
     setSearchText(e.target.value);
   }
@@ -17,7 +20,7 @@ function SearchForm({onSubmit}) {
 
   const handleSubmit= (e) => {
     e.preventDefault();
-    onSubmit();
+    onSubmit(searchText);
   }
 
   return (

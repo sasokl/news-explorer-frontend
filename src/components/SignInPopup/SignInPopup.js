@@ -27,7 +27,6 @@ function SignInPopup({
     onSignIn(email, password)
       .then(res => {
         if(res){
-          console.log(res);
           setFetchError(res.message);
           throw new Error(res.message)
         }

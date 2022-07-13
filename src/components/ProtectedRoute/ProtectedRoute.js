@@ -6,8 +6,14 @@ function ProtectedRoute({children, isLoggedIn, path, isTokenChecked}) {
   return (
     <Route path={path}>
       {
-        isTokenChecked ?
-          isLoggedIn ? children : <Redirect to={"/"}/> :
+        isTokenChecked
+          ? isLoggedIn
+            ? children
+            : <Redirect to={{
+              pathname: "/",
+              state: {signInPopupOpen: true},
+            }}/>
+          :
           <section className="saved-news-header">
             <CirclePreloader/>
           </section>

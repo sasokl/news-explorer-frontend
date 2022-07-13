@@ -1,6 +1,6 @@
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import Header from '../Header/Header';
-import {Route, Switch, useHistory, withRouter} from "react-router-dom";
+import {Route, Switch, useHistory, useLocation, withRouter} from "react-router-dom";
 import SavedNews from "../SavedNews/SavedNews";
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
@@ -18,6 +18,7 @@ import {CurrentUserContext} from "../../contexts/CurrentUserContext";
 
 function App() {
   const history = useHistory();
+  const signInPopupOpenState = useLocation().state?.signInPopupOpen;
 
   //TODO fix the temp solution for logged in variable
   const [isTokenChecked, setIsTokenChecked] = useState(false);
@@ -40,6 +41,13 @@ function App() {
   }, []);
 
   useEffect(() => {
+    if(signInPopupOpenState) {
+      setIsSignInPopupOpen(true);
+      window.history.replaceState({}, document.title)
+    }
+  },[signInPopupOpenState])
+
+  useEffect(() => {
     if (isLoggedIn) {
       mainApi.getArticles()
         .then(articles => {
@@ -52,16 +60,13 @@ function App() {
   const handleSignIn = (email, password, formClearData) => {
     return auth.authorize(email, password)
       .then(res => {
-        if (res.ok) {
-          res.json()
-            .then(resJson => {
-              localStorage.setItem('jwt', resJson.token);
-              mainApi.updateToken(resJson.token);
-              checkToken()
-              formClearData();
-              closeAllPopups();
-            })
-        } else return res.json();
+        if(res) {
+          localStorage.setItem('jwt', res.token);
+          mainApi.updateToken(res.token);
+          checkToken()
+          formClearData();
+          closeAllPopups();
+        }
       })
   };
 
@@ -85,12 +90,10 @@ function App() {
 
   const handleSignUp = (email, password, username, clearFormData) => {
     return auth.register(email, password, username)
-      .then((res) => {
-        if (res.ok) {
-          clearFormData();
-          closeAllPopups();
-          setIsSuccessPopupOpen(true);
-        } else return res.json();
+      .then(() => {
+        clearFormData();
+        closeAllPopups();
+        setIsSuccessPopupOpen(true);
       })
   };
 
@@ -173,7 +176,7 @@ function App() {
             onLoginClick={handleSignInClick}
             onLogout={clearData}
             onMenuClick={handleMenuClick}
-            setIsLoggedIn={(isLoggedInFlag) => setIsLoggedIn(isLoggedInFlag)}
+            setIsLoggedIn={setIsLoggedIn}
             history={history}/>
           <Switch>
             <ProtectedRoute path="/saved-news" isLoggedIn={isLoggedIn} isTokenChecked={isTokenChecked}>

@@ -3,7 +3,7 @@ import CustomLink from "../CustomLink/CustomLink";
 function Footer() {
   return (
     <footer className='footer'>
-      <p className="footer__copyright">&copy; 2022 Alexander Blaus</p>
+      <p className="footer__copyright">&copy; {`${new Date().getFullYear()} Alexander Blaus`}</p>
       <div className="footer__content-container">
         <nav className="navigation footer__navigation">
           <CustomLink to="/" className="navigation__item footer__navigation-item">

@@ -34,13 +34,10 @@ function SignInPopup({
   const handleSubmit = () => {
     setSubmitButtonText('Signing in...');
     onSignIn(email, password, clearFormData)
-      .then(res => {
-        if (res) {
-          setFetchError(res.message);
-          throw new Error(res.message)
-        }
+      .catch( err => {
+        setFetchError(err);
+        logError('Error: ' + err);
       })
-      .catch(logError)
       .finally(() => {
         setSubmitButtonText('Sign in');
       });

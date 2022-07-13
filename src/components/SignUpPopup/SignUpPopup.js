@@ -40,13 +40,10 @@ function SignUpPopup({
   const handleSubmit = () => {
     setSubmitButtonText('Creating account..');
     onSignUp(email, password, username, clearFormData, setSubmitButtonText)
-      .then(res => {
-        if (res) {
-          setFetchError(res.message);
-          throw new Error(res.message)
-        }
+      .catch((err) => {
+        setFetchError(err);
+        logError(err)
       })
-      .catch(logError)
       .finally(() => {
         setSubmitButtonText('Sign up');
       });

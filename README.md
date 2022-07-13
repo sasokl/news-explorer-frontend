@@ -1,5 +1,7 @@
 # Final Project: News Explorer (Front-End)
 
+[Site Link](https://www.ab-news-explorer.students.nomoreparties.sbs)
+
 ## About the project
 
 In this project, I've brought together everything I've learned throughout the Yandex Practicum program. This is the front-end part of the 'News Explorer' project with the following key functionality:

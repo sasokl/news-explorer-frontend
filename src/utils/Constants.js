@@ -21,6 +21,7 @@ const getTime = (daysAgo = 0) => {
 };
 
 export const NEWS_BASE_URL = 'https://newsapi.org/v2';
+//export const NEWS_BASE_URL = 'https://nomoreparties.co/news/v2';
 export const API_KEY = '3919da503a024dec9982a4020d02154e';
 export const FROM = getTime();
 export const TO = getTime(7);

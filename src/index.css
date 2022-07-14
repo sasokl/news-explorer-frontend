@@ -47,7 +47,7 @@
 @import url(./components/NewsCard/__date/news-card__date.css);
 @import url(./components/NewsCard/__title/news-card__title.css);
 @import url(./components/NewsCard/__text/news-card__text.css);
-@import url(./components/NewsCard/__tag/news-card__tag.css);
+@import url(components/NewsCard/__source/news-card__source.css);
 /* --- Popup --- */
 @import url(./components/Popup/popup.css);
 @import url(./components/Popup/_open/popup_open.css);
@@ -60,6 +60,7 @@
 @import url(./components/Popup/__fieldset/popup__fieldset.css);
 @import url(./components/Popup/__submit-button/popup__submit-button.css);
 @import url(./components/Popup/__submit-button/_mousedown/popup__submit-button_mousedown.css);
+@import url(./components/Popup/__submit-button/_inactive/popup__submit-button_inactive.css);
 @import url(./components/Popup/__text/popup__text.css);
 @import url(./components/Popup/__link/popup__link.css);
 @import url(./components/Popup/__link/_type/popup__link_type_success.css);
@@ -71,6 +72,7 @@
 @import url(./components/FormInput/form-input.css);
 @import url(./components/FormInput/__label/form-input__label.css);
 @import url(./components/FormInput/__error/form-input__error.css);
+@import url(./components/FormInput/__error/_type/form-input__error_type_submit.css);
 /* ================== Header ================== */
 
 @import url(./components/Header/header.css);

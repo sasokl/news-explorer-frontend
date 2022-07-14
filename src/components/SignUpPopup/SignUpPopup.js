@@ -1,13 +1,29 @@
 import FormInput from "../FormInput/FormInput";
 import PopupWithForm from "../PopupWithForm/PopupWithForm";
 import {useState} from "react";
+import {logError} from "../../utils/Constants";
+import validator from "validator/es";
 
-function SignUpPopup({isOpen, onClose, onSignUp, onSignInClick}) {
+function SignUpPopup({
+                       isOpen,
+                       onClose,
+                       onSignUp,
+                       onSignInClick
+                     }) {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [username, setUsername] = useState('');
+  const [isFormValid, setIsFormValid] = useState(false);
+  const [submitButtonText, setSubmitButtonText] = useState('Sign up');
+  const [fetchError, setFetchError] = useState('');
 
+  const clearFormData = () => {
+    setEmail('');
+    setPassword('');
+    setUsername('');
+    setFetchError('');
+  }
 
   function handleEmailChange(e) {
     setEmail(e.target.value);
@@ -21,10 +37,20 @@ function SignUpPopup({isOpen, onClose, onSignUp, onSignInClick}) {
     setUsername(e.target.value);
   }
 
-  // temporary function
   const handleSubmit = () => {
-    onClose();
-    onSignUp();
+    setSubmitButtonText('Creating account..');
+    onSignUp(email, password, username, clearFormData, setSubmitButtonText)
+      .catch((err) => {
+        setFetchError(err);
+        logError(err)
+      })
+      .finally(() => {
+        setSubmitButtonText('Sign up');
+      });
+  }
+
+  const handleEmailValidation = (email) => {
+    return validator.isEmail(email) ? '' : 'Invalid email';
   }
 
   return (
@@ -35,7 +61,9 @@ function SignUpPopup({isOpen, onClose, onSignUp, onSignInClick}) {
       onClose={onClose}
       onSubmit={handleSubmit}
       onRedirect={onSignInClick}
-      submitButtonText='Sign up'>
+      fetchError={fetchError}
+      submitButtonText={submitButtonText}
+      isFormValid={isFormValid}>
       <FormInput
         popupType='signup'
         type="email"
@@ -45,7 +73,9 @@ function SignUpPopup({isOpen, onClose, onSignUp, onSignInClick}) {
         placeholder="Enter email"
         minLength="1"
         maxLength="30"
-        isRequired={true}/>
+        isRequired={true}
+        customValidator={handleEmailValidation}
+        setIsFormValid={setIsFormValid}/>
       <FormInput
         popupType='signup'
         type="password"
@@ -53,9 +83,10 @@ function SignUpPopup({isOpen, onClose, onSignUp, onSignInClick}) {
         value={password}
         handleChange={handlePasswordChange}
         placeholder="Enter password"
-        minLength="6"
+        minLength="8"
         maxLength="30"
-        isRequired={true}/>
+        isRequired={true}
+        setIsFormValid={setIsFormValid}/>
       <FormInput
         popupType='signup'
         type="text"
@@ -65,7 +96,8 @@ function SignUpPopup({isOpen, onClose, onSignUp, onSignInClick}) {
         placeholder="Enter username"
         minLength="3"
         maxLength="30"
-        isRequired={true}/>
+        isRequired={true}
+        setIsFormValid={setIsFormValid}/>
     </PopupWithForm>
   );
 }

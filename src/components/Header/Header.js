@@ -3,8 +3,7 @@ import Navigation from "../Navigation/Navigation";
 import useWindowWidth from "../../utils/UseWindowWidth";
 import LoginButton from "../LoginButton/LoginButton";
 
-function Header({isLoggedIn, setIsLoggedIn, onLoginClick, onMenuClick, history}) {
-
+function Header({isLoggedIn, setIsLoggedIn, onLoginClick, onLogout, onMenuClick, history}) {
   const {width} = useWindowWidth();
 
   const location = history.location.pathname;
@@ -17,6 +16,7 @@ function Header({isLoggedIn, setIsLoggedIn, onLoginClick, onMenuClick, history})
         isLoggedIn={isLoggedIn}/>
       <LoginButton
         onLoginClick={onLoginClick}
+        onLogout={onLogout}
         isLoggedIn={isLoggedIn}
         isThemeDark={isThemeDark}
         history={history}

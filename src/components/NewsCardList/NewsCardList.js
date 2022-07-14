@@ -1,67 +1,140 @@
 import NewsCard from "../NewsCard/NewsCard";
 import CirclePreloader from "../CirclePreloader/CirclePreloader";
+import {useEffect, useState} from "react";
 
-function NewsCardList({isLoggedIn, location, onSignInClick, isSearching}) {
-  // These section's data below are temporary till I'll finish stage 3.
+function NewsCardList({
+                        isLoggedIn,
+                        onSaveArticle,
+                        onDeleteArticle,
+                        location,
+                        onSignInClick,
+                        isSearching = false,
+                        savedArticles = [],
+                        cards = []
+                      }) {
+  const [isSearchActivated, setIsSearchActivated] = useState(false);
+  const [cardsToShow, setCardsToShow] = useState(3);
 
-  const notFoundSection =
-    <section className='news-card-list news-card-list_type_not-found'>
-      <div className="news-card-list__not-found-icon"/>
-      <h2 className="news-card-list__title news-card-list__title_type_not-found">Nothing found</h2>
-      <p className="news-card-list__text news-card-list__text_type_not-found">Sorry, but nothing matched
-        your search terms.</p>
-    </section>;
+  useEffect(() => {
+    if (isSearching) {
+      setCardsToShow(3);
+      setIsSearchActivated(true);
+    }
+  }, [isSearching])
 
-  const content = !isSearching ?
-    <section className='news-card-list'>
-      {location === '/' && <h2 className='news-card-list__title'>Search results</h2>}
-      <div className='news-card-list__cards'>
-        <NewsCard
-          isLoggedIn={isLoggedIn}
-          location={location}
-          onSignInClick={onSignInClick}
-          imgLink={require('../../images/temp/1card.jpg')}
-          date='November 4, 2020'
-          title={'Everyone Needs a Special \'Sit Spot\' in Nature'}
-          text={`Ever since I read Richard Louv's influential book, "Last Child in the Woods," the idea of having a
-           special "sit spot" has stuck with me. This advice, which Louv attributes to nature educator Jon Young, is
-            for both adults and children to find...`}
-          tag='treehugger'
-          keyword='Nature'
-        />
-        <NewsCard
-          isLoggedIn={isLoggedIn}
-          location={location}
-          onSignInClick={onSignInClick}
-          imgLink={require('../../images/temp/2card.jpg')}
-          date='February 19, 2019'
-          title={'Nature makes you better'}
-          text={`We all know how good nature can make us feel. We have known it for millennia: the sound of the ocean, 
-          the scents of a forest, the way dappled sunlight dances through leaves.`}
-          tag='national geographic'
-          keyword='Nature'
-        />
-        <NewsCard
-          isLoggedIn={isLoggedIn}
-          location={location}
-          onSignInClick={onSignInClick}
-          imgLink={require('../../images/temp/3card.jpg')}
-          date='October 19, 2020'
-          title={'Grand Teton Renews Historic Crest Trail'}
-          text={`“The linking together of the Cascade and Death Canyon trails, at their heads, took place on October 1,
-           1933, and marked the first step in the realization of a plan whereby the hiker will be...`}
-          tag='National parks traveler'
-          keyword='Yellowstone'
-        />
-      </div>
-      <button className="news-card-list__button">
-        Show more
-      </button>
-    </section> :
-    <section className='news-card-list news-card-list_type_preloader'>
-      <CirclePreloader/>
-      <p className='news-card-list__text'>Searching for news...</p>
-    </section>;
+  useEffect(() => {
+    if (cards.length) setIsSearchActivated(true);
+  }, [cards])
+
+  const handleShowMore = () => setCardsToShow(cardsToShow + 3);
+
+  const timeConvert = (d) => {
+    const date = new Date(d);
+    const month = date.toLocaleString('default', {month: 'long'});
+    const splittedDate = date.toDateString().split(' ');
+    return `${month} ${splittedDate[2]}, ${splittedDate[3]}`;
+  }
+
+  let content = <></>;// Init state
+
+  switch (location) {
+    case '/saved-news':
+      content =
+        cards.length ?
+          <section className='news-card-list'>
+            <div className='news-card-list__cards'>
+              {
+                cards.slice(0, cardsToShow).map((card, i) => {
+                  return (
+                    <NewsCard
+                      key={i}
+                      isLoggedIn={isLoggedIn}
+                      isSaved={card.isSaved}
+                      location={location}
+                      onSignInClick={onSignInClick}
+                      onSaveArticle={onSaveArticle}
+                      onDeleteArticle={onDeleteArticle}
+                      link={card.link}
+                      keyword={card.keyword}
+                      image={card.image}
+                      date={timeConvert(card.date)}
+                      title={card.title}
+                      text={card.text}
+                      source={card.source}/>
+                  );
+                })
+              }
+            </div>
+            {(cards.length > 3 && cardsToShow < cards.length) ?
+              <button onClick={handleShowMore} className="news-card-list__button">
+                Show more
+              </button> :
+              <></>
+            }
+          </section> :
+          <></>;
+      break;
+    case '/':
+      if (isSearching) { // In searching progress (preloader showed)
+        content =
+          <section className='news-card-list news-card-list_type_preloader'>
+            <CirclePreloader/>
+            <p className='news-card-list__text'>Searching for news...</p>
+          </section>;
+      } else if (isSearchActivated) {
+        if (!cards.length) { // Search Activated but nothing found
+          content =
+            <section className='news-card-list news-card-list_type_not-found'>
+              <div className="news-card-list__not-found-icon"/>
+              <h2 className="news-card-list__title news-card-list__title_type_not-found">Nothing found</h2>
+              <p className="news-card-list__text news-card-list__text_type_not-found">Sorry, but nothing matched
+                your search terms.</p>
+            </section>;
+        } else { // Search Activated and news found
+          content =
+            <section className='news-card-list'>
+              <h2 className='news-card-list__title'>Search results</h2>
+              <div className='news-card-list__cards'>
+                {
+                  cards.slice(0, cardsToShow).map((card, i) => {
+                    return (
+                      <NewsCard
+                        key={i}
+                        isLoggedIn={isLoggedIn}
+                        isSaved={
+                          isLoggedIn && savedArticles &&
+                          !!(savedArticles.find(article => {
+                            return (article.link === card.link);
+                          }))
+                        }
+                        location={location}
+                        onSignInClick={onSignInClick}
+                        onSaveArticle={onSaveArticle}
+                        onDeleteArticle={onDeleteArticle}
+                        link={card.link}
+                        keyword={card.keyword}
+                        image={card.image}
+                        date={timeConvert(card.date)}
+                        title={card.title}
+                        text={card.text}
+                        source={card.source}/>
+                    );
+                  })
+                }
+              </div>
+              {(cards.length > 3 && cardsToShow < cards.length) ?
+                <button onClick={handleShowMore} className="news-card-list__button">
+                  Show more
+                </button> : <></>
+              }
+            </section>
+        }
+      }
+      break;
+    default:
+      content = <></>;
+  }
+
 
   return (
     <>

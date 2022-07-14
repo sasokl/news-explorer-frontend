@@ -1,4 +1,12 @@
-function PopupForm({name, submitButtonText, onSubmit, children}) {
+function PopupForm({
+                     name,
+                     submitButtonText,
+                     onSubmit,
+                     fetchError,
+                     isFormValid,
+                     children
+}) {
+
 
   const handleButtonMousedown = (e) => {
     e.target.className = 'popup__submit-button popup__submit-button_mousedown'
@@ -15,18 +23,18 @@ function PopupForm({name, submitButtonText, onSubmit, children}) {
   return (
     <form
       className='popup__form'
+      onSubmit={handleSubmit}
       action="#"
       name={`${name}-form`}
       noValidate={true}>
       <fieldset className="popup__fieldset">
         {children}
-        <span className={`form-input__error ${name}-submit-input-error`}/>
+        <span className={`form-input__error form-input__error_type_submit`}>{fetchError}</span>
         <button
-          onClick={handleSubmit}
           onMouseDown={handleButtonMousedown}
           onMouseUp={handleButtonMouseup}
           onMouseLeave={handleButtonMouseup}
-          className='popup__submit-button'
+          className={`popup__submit-button${!isFormValid ? ' popup__submit-button_inactive' : ''}`}
           type="submit">
           {submitButtonText}
         </button>

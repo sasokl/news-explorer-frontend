@@ -1,8 +1,13 @@
-function LoginButton({isLoggedIn, setIsLoggedIn, onLoginClick, history, isThemeDark, onClose}) {
+import React from "react";
+import {CurrentUserContext} from "../../contexts/CurrentUserContext";
+
+function LoginButton({isLoggedIn, setIsLoggedIn, onLoginClick, onLogout, history, isThemeDark}) {
+
+  const currentUser = React.useContext(CurrentUserContext);
 
   const handleLogout = () => {
+    onLogout();
     setIsLoggedIn(false)
-    onClose();
     history.push('/');
   }
 
@@ -10,7 +15,7 @@ function LoginButton({isLoggedIn, setIsLoggedIn, onLoginClick, history, isThemeD
 
   const loginBtn = isLoggedIn ?
     <button onClick={handleLogout} className={`login-button login-button_type_logout${isThemeDark ? ' login-button_theme_dark' : ''}`}
-            type='submit'>Elise
+            type='submit'>{currentUser.name}
       <div className={logoutIcon}/>
     </button> :
     <button onClick={onLoginClick} className={`login-button login-button_type_login${isThemeDark ? ' login-button_theme_dark' : ''}`}

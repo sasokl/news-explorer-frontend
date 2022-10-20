@@ -20,11 +20,6 @@ In this project, I've brought together everything I've learned throughout the Ya
 * Project Structures
 * HOC
 * Front-End Authentication
-### HTML and CSS:
-* Semantic HTML
-* BEM methodology
-* Flexbox and Grid
-* Responsive layout with media queries
 ### Javascript:
 * Form validation
 * Popup window
@@ -32,3 +27,8 @@ In this project, I've brought together everything I've learned throughout the Ya
 * Destructuring syntax
 * Asynchronous programming
 * Working with API (HTTP requests)
+### HTML and CSS:
+* Semantic HTML
+* BEM methodology
+* Flexbox and Grid
+* Responsive layout with media queries

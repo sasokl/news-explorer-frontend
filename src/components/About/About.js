@@ -7,7 +7,7 @@ function About() {
         <p className="about__info-text">
           Hi, I'm Alex. As a graduate of the web-developer course Practicum by Yandex and Masterschool , I 'm glad to introduce my diploma
           project. <br/><br/>My recently-finished web developer internship experience has shaped my code evaluation and website development knowledge,
-          and I know I have the MERN skills which helps me to solutions succeed.<br/><br/>
+          and now I have the MERN skills which help me to succeed in finding solutions.<br/><br/>
           During my learning I reached numerous skills and strengthened existing abilities, all which would serve me well in my future career.
         </p>
       </div>

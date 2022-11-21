@@ -17,9 +17,8 @@ function Footer() {
           <a href="https://github.com/sasokl" className="custom-link" target="_blank" rel="noreferrer">
             <div className="footer__social-item footer__social-item_type_git"/>
           </a>
-          {/* I have no facebook account, so I'll just add the global facebook url for now. */}
-          <a href="https://www.facebook.com/" className="custom-link" target="_blank" rel="noreferrer">
-            <div className="footer__social-item footer__social-item_type_facebook"/>
+          <a href="https://www.linkedin.com/in/alexander-blaus/" className="custom-link" target="_blank" rel="noreferrer">
+            <div className="footer__social-item footer__social-item_type_linkedin"/>
           </a>
         </nav>
       </div>
